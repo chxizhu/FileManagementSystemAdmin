@@ -2,3 +2,6 @@
 /business/
 /hibernate.cfg.xml
 /springmvc-servlet.xml
+/controller/
+/model/
+/util/
