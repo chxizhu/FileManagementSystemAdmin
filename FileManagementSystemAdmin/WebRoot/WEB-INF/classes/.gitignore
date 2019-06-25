@@ -1,7 +1,7 @@
 /applicationContext.xml
-/business/
 /hibernate.cfg.xml
-/springmvc-servlet.xml
-/controller/
 /model/
+/springmvc-servlet.xml
+/business/
+/controller/
 /util/
