@@ -35,7 +35,7 @@
 			
 			 
 				<li class="layui-nav-item">
-					<a href="javascript:;">欢迎您：<%%><span id="userrole"></span></a>
+					<a href="javascript:;">欢迎您：${user.name } ${user.realname }<span id="userrole"></span></a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a id="loginout" class="loginout" href="javascript:">退出系统</a>
