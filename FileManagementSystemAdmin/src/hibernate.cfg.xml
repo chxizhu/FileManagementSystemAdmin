@@ -31,6 +31,7 @@
 		<mapping resource="model/VAdminUser.hbm.xml" />
 		<mapping resource="model/TFile.hbm.xml" />
 		<mapping resource="model/VFile.hbm.xml" />
+		<mapping resource="model/TRole.hbm.xml" />
 
 	</session-factory>
 
