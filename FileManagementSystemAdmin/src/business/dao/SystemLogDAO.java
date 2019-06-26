@@ -11,7 +11,7 @@ public interface SystemLogDAO {
 	 * @param wherecondittion
 	 * @return list
 	 */
-	List<TsystemLog> getLogList(String log, int currentPage,
+	public List<TsystemLog> getLogList(String log, int currentPage,
 			int pageSize);
 
 	/**

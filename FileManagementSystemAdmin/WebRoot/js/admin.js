@@ -82,11 +82,9 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 			url: '../sysadminusermanager/logoutsystem',
 			datatype: 'json',
 			success: function(data) {
-				if(data.code=="10001"){
+				
 					window.location.href = "../html/login.jsp";
-				}else{
 					layer.msg(data.msg,{icon:2});
-				}
 			},
 			error: function() {}
 		});
