@@ -7,9 +7,12 @@
 <hibernate-mapping>
     <class name="model.VUser" table="V_User" schema="dbo" catalog="FileManagementSystemDB">
        
-            <id name="departmentid" type="java.lang.Integer">
-                <column name="departmentid" />
+            <id name="id" type="java.lang.String">
+                <column name="ID" length="36" />
             </id>
+            <property name="departmentid" type="java.lang.Integer">
+                <column name="departmentid" />
+            </property>
             <property name="departmentname" type="java.lang.String">
                 <column name="departmentname" length="20" />
             </property>
