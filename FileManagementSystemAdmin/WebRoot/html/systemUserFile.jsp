@@ -134,16 +134,17 @@
 
 			<!-- 表格开始 -->
 			<table class="layui-hide" name="adminUser" id="adminUser" lay-filter="adminUser"></table>
+			<script type="text/html" id="barDemo">
+			
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		    </script>
 			<!-- 表格结束 -->
 		</div>
 		<script src="../js/jquery-3.3.1.js" charset="utf-8"></script>
 		<script src="../layui/layui.js" charset="utf-8"></script>
 		<script>
-			layui
-				.use(
-					['table', 'form', 'layer', 'laytpl', 'element',
-						'laydate'
-					],
+			layui.use(
+					['table', 'form', 'layer', 'laytpl', 'element','laydate'],
 					function() {
 						var table = layui.table,
 							form = layui.form,
@@ -199,7 +200,7 @@
 								}, {
 									field: 'username',
 									align: 'center',
-									title: '上传人'
+									title: '上传作者'
 								}
 								
 								, {
@@ -226,8 +227,7 @@
 						/* 点击查询对网站用户进行筛选 */
 						$("#btnselfrontinfo").click(
 							function() {
-							
-							
+
 							var selectid = $("#type").val();
 							var method = $("#method").val();
 							var realname = $("#realname").val();
@@ -273,7 +273,7 @@
 								}, {
 									field: 'username',
 									align: 'center',
-									title: '上传人'
+									title: '上传作者'
 								}
 								
 								, {
@@ -302,6 +302,78 @@
 										},
 									});
 							});
+							
+				//表格工具栏事件 
+		table.on('tool(blogUser)', function(obj) {
+			var data = obj.data;
+			$("#txtclaid").text(data.roleid);
+			$("#txtadminuserrealname").text(data.rolename);
+			$("#txtadminuserusertype").text(data.authorityId);
+			
+			
+			switch (obj.event) {
+				case 'seluser':
+					layer.open({
+				        type: 1, 
+				        title: '管理员信息详情',
+				        area: ['600px', '430px'],
+				        shade: 0.8,
+				        content: $('#adminuserdetail'),
+				        btn: ['返回'], 
+				        yes: function(){
+				          layer.closeAll();
+				          $(".adminuserdetail").css("display","none");
+				        },
+				        cancel: function(){ 
+						  $(".adminuserdetail").css("display","none");
+						}
+				    });
+				break;
+				
+				//删除按钮操作
+				case 'del':
+					layer.confirm('确定要删除么？', {
+					  btn: ['确定','取消'],
+					  icon:3
+					}, function(){
+						$.ajax({
+			        		type: 'get',
+			        		url: "../systemmodel/deleterole?roleid=" + data.roleid,
+			        		dataType: 'json',
+			        		success:function(data){
+			        			if(data.code == 0){
+			        				layer.confirm(data.msg, {
+									  btn: ['确定']
+									}, function(){
+										table.reload("blogUserid", { //此处是上文提到的 初始化标识id
+							                where: {
+							                	keyword:data.code=='0'
+							                }
+							            });	
+										layer.closeAll();
+									});          				 
+			        			}
+			        			else{
+			        				layer.confirm(data.msg, {
+										  btn: ['确定']
+									});
+			        			}
+			        		},
+			        		error:function(){
+			        			layer.confirm('出现错误，删除失败，请重试！', {
+									  btn: ['确定']
+								});
+			        		},
+			        	});   
+					}, function(){ 
+						layer.closeAll();
+					});
+				break;
+				
+			}
+			;
+		});
+							
 
 					});
 		</script>
