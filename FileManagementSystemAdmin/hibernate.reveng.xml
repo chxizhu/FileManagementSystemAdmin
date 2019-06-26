@@ -14,8 +14,32 @@
 			<generator class="identity"></generator>
 		</primary-key>
 	</table>
-<table name="T_Role" schema="dbo" catalog="FileManagementSystemDB"
-	class="model.TRole">
+	<table name="T_Role" schema="dbo" catalog="FileManagementSystemDB"
+		class="model.TRole">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="T_User" schema="dbo" catalog="FileManagementSystemDB"
+		class="model.TUser">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="V_User" schema="dbo" catalog="FileManagementSystemDB"
+		class="model.VUser">
+		<primary-key>
+			<generator class="identity"></generator>
+		</primary-key>
+	</table>
+	<table name="T_Department" schema="dbo"
+		catalog="FileManagementSystemDB" class="model.TDepartment">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+<table name="T_FileType" schema="dbo" catalog="FileManagementSystemDB"
+	class="model.TFileType">
 	<primary-key>
 		<generator class="assigned"></generator>
 	</primary-key>

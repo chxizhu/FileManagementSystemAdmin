@@ -32,6 +32,10 @@
 		<mapping resource="model/TFile.hbm.xml" />
 		<mapping resource="model/VFile.hbm.xml" />
 		<mapping resource="model/TRole.hbm.xml" />
+		<mapping resource="model/TUser.hbm.xml" />
+		<mapping resource="model/VUser.hbm.xml" />
+		<mapping resource="model/TDepartment.hbm.xml" />
+		<mapping resource="model/TFileType.hbm.xml" />
 
 	</session-factory>
 
