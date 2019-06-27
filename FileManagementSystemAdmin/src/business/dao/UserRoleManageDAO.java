@@ -30,5 +30,6 @@ public interface UserRoleManageDAO {
 	 * @return  成功返回0失败返回1
 	 */
 	public int addUserRole(TRole TRole);
+	
 
 }

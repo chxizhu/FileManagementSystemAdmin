@@ -3,7 +3,10 @@ package business.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.TAdminRole;
+import model.TDepartment;
 import model.TRole;
+import model.TUser;
 import model.VUser;
 import common.properties.OperType;
 import business.basic.HibernateDAO;
@@ -44,12 +47,32 @@ public class SystemUserDAOImpl implements SystemUserDAO {
 	}
 	
 	@Override
-	public List<String> getRoleTypes() {
-		List<String> list = new ArrayList<String>();
-		for(int i=0;i<OperType.OPERTYPES.length;i++){
-			list.add(OperType.OPERTYPES[i]);
-		}
+	public List<TRole> getRoleTypes() {
+		String hql = "from TRole";
+		List<TRole> list =  bdao.select(hql);
 		return list;
+	}
+	
+	@Override
+	public List<TDepartment> getDepartmentTypes() {
+		String hql = "from TDepartment";
+		List<TDepartment> list =  bdao.select(hql);
+		return list;
+	}
+	
+	@Override
+	public int addUser(TUser user) {
+		Object obj = bdao.insert(user);
+		if (obj != null)
+			return 0;
+		else
+			return 1;	
+	}
+	
+	@Override
+	public boolean deleteUser(String id) {
+		return bdao.delete(TUser.class, id);
+		
 	}
 
 }

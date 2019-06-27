@@ -97,10 +97,6 @@
 		        <td><span id="txtUserName"></span></td>
 		      </tr>
 		      <tr>
-		        <td class="tdbck">用户密码</td>
-		        <td><span id="txtPwd"></span></td>
-		      </tr>
-		      <tr>
 		        <td class="tdbck">用户性别</td>
 		        <td><span id="txtSex"></span></td>
 		      </tr>
@@ -131,7 +127,7 @@
 			    <div class="layui-inline">
 	     	   		<button id="btnselfrontinfo" type="button" class="layui-btn layui-bg-blue">查询</button>
 			    </div>
-				<button type="button" class="layui-btn layui-bg-blue" id="addartType" lay-event="addartType" lay-filter="addartType" style="margin-left: 10px;">添加用户</button>
+				<button type="button" class="layui-btn layui-bg-blue" id="btnAddUser" lay-event="btnAddUser" lay-filter="btnAddUser" style="margin-left: 10px;">添加用户</button>
 			</form>
 		</blockquote>
 		<!-- 条件筛选框End -->
@@ -157,7 +153,7 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">用户名字:</label>
 						<div class="layui-input-block">
-							<input type="text" name="userName" id="userName" autocomplete="off" placeholder="请输入用户名字" class="layui-input">
+							<input type="text" name="inUserName" id="inUserName" autocomplete="off" placeholder="请输入用户名字" class="layui-input">
 						</div>
 					</div>
 					
@@ -171,8 +167,8 @@
 					 <div class="layui-form-item">
 					    <label class="layui-form-label">用户性别:</label>
 					    <div class="layui-input-block">
-					      <input type="radio" name="sex" value="男" title="男" checked>
-					      <input type="radio" name="sex" value="女" title="女">
+					      <input type="radio" name="sex" id="sex" value="男" title="男" checked>
+					      <input type="radio" name="sex" id="sex" value="女" title="女">
 					    </div>
 					  </div>
 					  
@@ -185,23 +181,21 @@
 			
 					<div class="layui-form-item">
 				      <label class="layui-form-label">角色权限:</label>
-				      <div class="layui-input-block">
-				       	<select name="roleid" id="roleid" lay-filter="roleid">						  
-						</select> 
+				      <div class="layui-input-block">				       
+				       	<select name="roleid" id="roleid" lay-filter="roleid">
+						 <option value="00">请选择角色</option>						
+					    </select>					  
 				      </div>
 				    </div>
 				    
 				    <div class="layui-form-item">
 				      <label class="layui-form-label">所属部门:</label>
-				      <div class="layui-input-block">
-				       	<select id="userDepartment">
-						  <option value="">请选择用户部门</option>
-						  <option value="101">个人</option>
-						  <option value="102">部门</option>
-						    <option value="103">公司</option>
-						</select> 
+				      <div class="layui-input-block">				       
+				       	<select name="departmentid" id="departmentid" lay-filter="departmentid">
+						 <option value="00">请选择用户部门</option>						
+					    </select>					  
 				      </div>
-				    </div>
+				    </div>				    
 				    
 				</form>
 			</div>
@@ -221,7 +215,7 @@
 		/*加载表格*/
 		table.render({
 			elem : '#blogUser',
-			id:'blogUserid',
+			id:'systemUser',
 			url : '../systemuser/commonuser',
 			title : '博主用户数据表',
 			height: "full-160",
@@ -328,80 +322,22 @@
 			});
 		});
 		
-		/* 添加一个网站用户 */
-		$("#addartType").click(function(){
-			$("#addUserName").val("");
-			$("#nickName").val("");
-			$("#usertype").val("");
-			layer.open({
-				type : 1,
-				title : '网站用户添加',
-				area : [ '450px', '500px' ],
-				shade : 0.4,
-				content : $('#add-blogUser'),
-				btn : [ '保存', '返回' ],
-				yes : function() {
-					var addUserName = $("#addUserName").val().trim();
-					var nickName = $("#nickName").val().trim();
-					var usertype = $("#usertype").val().trim();
-
-					if(addUserName == "") {
-						layer.tips('不能为空', '#addUserName');
-						return;
-					} 
-					if(nickName==""){
-						layer.tips('不能为空', '#nickName');
-						return;
-					}
-					if(usertype==""){
-						return;
-					}
-					$.ajax({
-						type : 'get',
-						url : '../systemmodel/addrole?roleid=' + addUserName + '&rolename=' + nickName+'&authorityId='+usertype,
-						datatype : 'json',
-						success : function(data) {
-							if (data.code == "0") {
-								layer.confirm(data.msg, {
-								  btn: ['确定'],
-								  icon:1
-								}, function(){
-									table.reload("blogUserid", { //此处是上文提到的 初始化标识id
-						                where: {
-						                	keyword:data.code=='10001'
-						                }
-						            });	
-									layer.closeAll();
-								});
-							}else{
-								layer.confirm(data.msg, {
-								  btn: ['确定'],
-								  icon:2
-								});
-								layer.setTop(layero);
-							}
-						},
-						error : function() {}
-					});						
-				},
-				btn2 : function() {layer.closeAll();}
-			});
-		});
-	
 		//表格工具栏事件 
 		table.on('tool(blogUser)', function(obj) {
 			var data = obj.data;
-			$("#txtclaid").text(data.roleid);
-			$("#txtadminuserrealname").text(data.rolename);
-			$("#txtadminuserusertype").text(data.authorityId);
-			
+			$("#txtUserID").text(data.userid);
+			$("#txtUserName").text(data.username);
+			$("#txtSex").text(data.agend);
+			$("#txtPhoneNum").text(data.phone);
+			$("#txtUserRole").text(data.rolename);
+			$("#txtadminuserusertype").text(data.departmentname);
 			
 			switch (obj.event) {
 				case 'seluser':
 					layer.open({
 				        type: 1, 
 				        title: '管理员信息详情',
-				        area: ['600px', '600px'],
+				        area: ['600px', '430px'],
 				        shade: 0.8,
 				        content: $('#adminuserdetail'),
 				        btn: ['返回'], 
@@ -423,14 +359,14 @@
 					}, function(){
 						$.ajax({
 			        		type: 'get',
-			        		url: "../systemmodel/deleterole?roleid=" + data.roleid,
+			        		url: "../systemuser/deleteuser?userid=" + data.userid,
 			        		dataType: 'json',
 			        		success:function(data){
 			        			if(data.code == 0){
 			        				layer.confirm(data.msg, {
 									  btn: ['确定']
 									}, function(){
-										table.reload("blogUserid", { //此处是上文提到的 初始化标识id
+										table.reload("systemUser", { //此处是上文提到的 初始化标识id
 							                where: {
 							                	keyword:data.code=='0'
 							                }
@@ -455,38 +391,149 @@
 					});
 				break;
 				
-			}
-			;
+			};
+		});
+		
+		/* 添加一个网站用户 */
+		$("#btnAddUser").click(function(){
+			$("#userID").val("");
+			$("#inUserName").val("");
+			$("#pwd").val("");
+			$("#sex").val("");
+			$("#phoneNum").val("");
+			$("#roleid").val("");
+			$("#departmentid").val("");
+			layer.open({
+				type : 1,
+				title : '网站用户添加',
+				area : [ '450px', '500px' ],
+				shade : 0.4,
+				content : $('#add-blogUser'),
+				btn : [ '保存', '返回' ],
+				yes : function() {
+					var userID = $("#userID").val().trim();
+					var inUserName = $("#inUserName").val().trim();
+					var pwd = $("#pwd").val().trim();
+					var sex = $("#sex").val().trim();
+					var phoneNum = $("#phoneNum").val().trim();
+					var roleid = $("#roleid").val();
+					var departmentid = $("#departmentid").val();
+					
+
+					if(userID == "") {
+						layer.tips('不能为空', '#userID');
+						return;
+					} 
+					if(inUserName==""){
+						layer.tips('不能为空', '#inUserName');
+						return;
+					}
+					
+					if(pwd == "") {
+						layer.tips('不能为空', '#pwd');
+						return;
+					} 
+					
+					if(phoneNum == "") {
+						layer.tips('不能为空', '#phoneNum');
+						return;
+					} 
+		 			if(roleid==""){
+						layer.tips('不能为空', '#roleid');
+						return;
+					}
+					
+					if(departmentid==""){
+					layer.tips('不能为空', '#departmentid');
+						return;
+					}  
+					$.ajax({
+						type : 'get',
+						url : '../systemuser/adduser?userid=' + userID + '&username=' + inUserName+'&pwd='+pwd + 
+										'&agend=' + sex + '&phone=' + phoneNum+'&role_name='+roleid+'&department_id='+departmentid,
+						datatype : 'json',
+						success : function(data) {
+							if (data.code == "0") {
+								layer.confirm(data.msg, {
+								  btn: ['确定'],
+								  icon:1
+								}, function(){
+									table.reload("systemUser", { //此处是上文提到的 初始化标识id
+						                where: {
+						                	keyword:data.code=='10001'
+						                }
+						            });	
+									layer.closeAll();
+								});
+							}else{
+								layer.confirm(data.msg, {
+								  btn: ['确定'],
+								  icon:2
+								});
+								layer.setTop(layero);
+							}
+						},
+						error : function() {}
+					});						
+				},
+				btn2 : function() {layer.closeAll();}
+			});
 		});
 	
-	});
+		
 	
+	/* 动态加载用户角色 */
 	$(function() {
-											$.ajax({
-												url : "../getroletype",
-												type : "POST",
-												data : null,
-												dataType : 'json',
-												contentType : 'application/json;charset=UTF-8',//contentType 很重要
-												success : function(e) {
-													//alert(e.msg+"\n"+e.flag+"\n"+ JSON.stringify(e));
-													//alert(e.resultoObject[1]);
-													var s = $("#roleid").html();		
-													var str = "";			
-													for(var i=0;i<e.resultObject.length;i++){					
-														str += '<option value=' + e.resultObject[i].id + '>' + e.resultObject[i].name + '</option>';
-													}
-													$("#roleid").append(str);
-													form.render("select");
-												},
-												error : function(e) {
-													alert("error:"+e.msg);
-												}
-									
-											})
-										});
+				$.ajax({
+					url : "../systemuser/getadminrolelist",
+					type : "POST",
+					data : null,
+					dataType : 'json',
+					contentType : 'application/json;charset=UTF-8',//contentType 很重要
+					success : function(e) {
+						//alert(e.msg+"\n"+e.flag+"\n"+ JSON.stringify(e));
+						//alert(e.resultoObject[1]);
+						var s = $("#roleid").html();		
+						var str = "";			
+						for(var i=0;i<e.resultObject.length;i++){					
+							str += '<option value=' + e.resultObject[i].roleid + '>' + e.resultObject[i].rolename + '</option>';
+						}
+						$("#roleid").append(str);
+						form.render("select");
+					},
+					error : function(e) {
+						alert("error:"+e.msg);
+					}
+		
+				})
+			});
  
-	
+ 	/* 动态加载部门 */
+	$(function() {
+				$.ajax({
+					url : "../systemuser/getDepartmentlist",
+					type : "POST",
+					data : null,
+					dataType : 'json',
+					contentType : 'application/json;charset=UTF-8',//contentType 很重要
+					success : function(e) {
+						//alert(e.msg+"\n"+e.flag+"\n"+ JSON.stringify(e));
+						//alert(e.resultoObject[1]);
+						var s = $("#departmentid").html();		
+						var str = "";			
+						for(var i=0;i<e.resultObject.length;i++){					
+							str += '<option value=' + e.resultObject[i].departmentid + '>' + e.resultObject[i].departmentname + '</option>';
+						}
+						$("#departmentid").append(str);
+						form.render("select");
+					},
+					error : function(e) {
+						alert("error:"+e.msg);
+					}
+		
+				})
+			});
+			});
 	</script>
 </body>
 </html>

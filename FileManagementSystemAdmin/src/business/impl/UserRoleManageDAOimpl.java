@@ -2,6 +2,7 @@ package business.impl;
 
 import java.util.List;
 
+import model.TDepartment;
 import model.TRole;
 import business.basic.HibernateDAO;
 import business.basic.HibernateDAOimpl;
@@ -37,8 +38,8 @@ public class UserRoleManageDAOimpl implements UserRoleManageDAO {
 		if (obj != null)
 			return 0;
 		else
-			return 1;
-		
+			return 1;		
 	}
+
 
 }

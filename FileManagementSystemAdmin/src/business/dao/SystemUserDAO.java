@@ -2,6 +2,8 @@ package business.dao;
 
 import java.util.List;
 
+import model.TRole;
+import model.TUser;
 import model.VUser;
 
 public interface SystemUserDAO {
@@ -40,9 +42,30 @@ public interface SystemUserDAO {
 	public int getCommonUserUserByIDAmount(String wherecondition);
 	
 	/**
-	 * 获取角色权限的类型
+	 * 获取角色权限的类型，绑定到选择权限下拉框
 	 * @return
 	 */
-	public List<String> getRoleTypes();
+	public List getRoleTypes();
+	
+	/**
+	 * 获取所有部门，绑定到选择权限下拉框
+	 * @return
+	 */
+	public List getDepartmentTypes();
+	
+	/**
+	 * 前端用户添加
+	 * @param TRole TRole 对象
+	 * @return  成功返回0失败返回1
+	 */
+	public int addUser(TUser user);
+	
+	/**
+	 * 通过id进行删除
+	 * @param int id
+	 * @param 
+	 * @return 成功返回0 失败返回1 
+	 */
+	public boolean deleteUser(String id);
 	
 }
