@@ -17,10 +17,10 @@ public interface UserRoleManageDAO {
 	public List<TRole> getUserRole(String str, int currentPage, int pageSize);
 	
 	/**
-	 * 用户角色表业务方法
+	 * 通过id进行删除
+	 * @param int id
 	 * @param 
-	 * @param 
-	 * @return  List<TAdminRole>  当前登录的用户对象
+	 * @return 成功返回0 失败返回1 
 	 */
 	public boolean deleteUserRole(int id);
 	

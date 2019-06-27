@@ -135,7 +135,6 @@
 			<!-- 表格开始 -->
 			<table class="layui-hide" name="adminUser" id="adminUser" lay-filter="adminUser"></table>
 			<script type="text/html" id="barDemo">
-			
 			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 		    </script>
 			<!-- 表格结束 -->
@@ -304,7 +303,7 @@
 							});
 							
 				//表格工具栏事件 
-		table.on('tool(blogUser)', function(obj) {
+		    table.on('tool(adminUser)', function(obj) {
 			var data = obj.data;
 			$("#txtclaid").text(data.roleid);
 			$("#txtadminuserrealname").text(data.rolename);
@@ -338,14 +337,14 @@
 					}, function(){
 						$.ajax({
 			        		type: 'get',
-			        		url: "../systemmodel/deleterole?roleid=" + data.roleid,
+			        		url: "../systemmodel/deleteFile?fileid=" + data.fileid,
 			        		dataType: 'json',
 			        		success:function(data){
 			        			if(data.code == 0){
 			        				layer.confirm(data.msg, {
 									  btn: ['确定']
 									}, function(){
-										table.reload("blogUserid", { //此处是上文提到的 初始化标识id
+										table.reload("adminUser", { //此处是上文提到的 初始化标识id
 							                where: {
 							                	keyword:data.code=='0'
 							                }

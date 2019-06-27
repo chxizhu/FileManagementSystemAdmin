@@ -21,5 +21,13 @@ public interface userFileDAO {
 	 * @return int
 	 */
 	public int getVFile();
+	
+	/**
+	 * 通过id进行删除
+	 * @param int id
+	 * @param 
+	 * @return 成功返回0 失败返回1 
+	 */
+	public boolean deleteUserFile(int id);
 
 }
