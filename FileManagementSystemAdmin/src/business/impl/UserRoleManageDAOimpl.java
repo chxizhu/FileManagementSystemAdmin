@@ -1,6 +1,7 @@
 package business.impl;
 
 import java.util.List;
+
 import model.TRole;
 import business.basic.HibernateDAO;
 import business.basic.HibernateDAOimpl;
@@ -13,15 +14,15 @@ public class UserRoleManageDAOimpl implements UserRoleManageDAO {
 		this.bado = new HibernateDAOimpl();
 	}
 	@Override
-	public List<TRole> getUserRole(String str, int currentPage,int pageSize) {
+	public List<TRole> getUserRole(String wherecondition, int currentPage,int pageSize) {
 		String hql = "from TRole";
-		if (str != null && !str.equals("")) {
-			hql += str+")";
-		
-		}
-		List<TRole> list = bado.selectByPage(hql, currentPage, pageSize);
+		  if (wherecondition != null && !wherecondition.equals("")) {
+		   hql += wherecondition+")";
+		  
+		  }
+		  List<TRole> list = bado.selectByPage(hql, currentPage, pageSize);
 
-		return list;
+		  return list;
 	}
 
 	@Override

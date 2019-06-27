@@ -69,7 +69,7 @@ public class SystemUserController {
 	
 	@RequestMapping(value = "getcommonuserUserByID")
 	public void getCommonUserUserByID(
-			String userName,
+			String userName,//输入框查询条件
 			int limit,// 总页数
 			int page,// 每页条目
 			HttpServletRequest request,
@@ -77,7 +77,6 @@ public class SystemUserController {
 		
 		SystemUserDAO sudao = new SystemUserDAOImpl();
 		List list = sudao.getCommonUserUserByID(userName, page,limit);
-		System.out.println("查询条件为：" + userName);
 		
 		int size = sudao.getCommonUserUserByIDAmount(userName);
 		

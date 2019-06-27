@@ -23,7 +23,7 @@
 		<div class="login-title">用户登录</div>
 		<div class="layui-form-item input-item layui-input-active">
 			<label for="userName">用户名</label>
-			<input type="text" placeholder="登录用户名" autocomplete="off" name="loginId" id="user_name"  class="layui-input" lay-verify="required" >
+			<input type="text" placeholder="登录用户名"  name="loginId" id="user_name"  class="layui-input" lay-verify="required" >
 		</div>
 		<div class="layui-form-item input-item layui-input-active">
 			<label for="password">密码</label>

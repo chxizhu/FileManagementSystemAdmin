@@ -218,7 +218,7 @@
 			var useridornickname=$("#userName").val().trim();
 			table.render({
 				elem : '#blogUser',
-				url : '../systemmodel/roleManage?str='+useridornickname,
+				url : '../systemmodel/roleManage?userName='+useridornickname,
 				title : '博主用户数据表',
 				height: "full-160",
 				skin : 'line',

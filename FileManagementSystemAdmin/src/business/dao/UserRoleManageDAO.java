@@ -14,7 +14,7 @@ public interface UserRoleManageDAO {
 	 * @param 
 	 * @return  List<TAdminRole>  当前登录的用户对象
 	 */
-	public List<TRole> getUserRole(String str, int currentPage, int pageSize);
+	public List<TRole> getUserRole(String wherecondition, int currentPage, int pageSize);
 	
 	/**
 	 * 通过id进行删除

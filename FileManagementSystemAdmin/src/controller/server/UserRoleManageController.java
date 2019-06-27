@@ -3,16 +3,21 @@ package controller.server;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import model.TRole;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import util.ReturnData;
 import business.dao.UserRoleManageDAO;
 import business.impl.UserRoleManageDAOimpl;
+
 import com.alibaba.fastjson.JSON;
 
 @Controller
@@ -20,32 +25,38 @@ import com.alibaba.fastjson.JSON;
 public class UserRoleManageController {
 
 	@RequestMapping(value = "/roleManage")
-	public void getuserrolemanagerlist(String str, int page, int limit,
+	public void getuserrolemanagerlist(
+			String userName,//输入框查询条件
+			int page, 
+			int limit,
 			HttpServletRequest request, HttpServletResponse response,
 			Model model) throws IOException {
-		UserRoleManageDAO smdao = new UserRoleManageDAOimpl();
-		util.Expression exp = new util.Expression();
-		//根据条件获取模糊查询
-		if(str!=null && !str.equals("")){
-			exp.andLike("rolename", str, String.class);
-		}
-		List<TRole> List = smdao.getUserRole(exp.toString(), page, limit);
-		// 回传json字符串
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		ReturnData td = new ReturnData();
-		if (List != null) {
-			td.code = ReturnData.SUCCESS;
-			td.msg = "查询成功";
-			td.data = List;
-		} else {
-			td.code = ReturnData.ERROR;
-			td.msg = "查询失败";
-		}
-		out.write(JSON.toJSONString(td));
-		out.flush();
-		out.close();
+		
+		  UserRoleManageDAO smdao = new UserRoleManageDAOimpl();
+		  util.Expression exp = new util.Expression();
+		  
+		  //根据条件获取模糊查询
+		  if(userName!=null && !userName.equals("")){
+		   exp.andLike("rolename", userName, String.class);
+		  }
+		  List<TRole> List = smdao.getUserRole(exp.toString(), page, limit);
+		  
+		  // 回传json字符串
+		  response.setCharacterEncoding("utf-8");
+		  response.setContentType("application/json");
+		  PrintWriter out = response.getWriter();
+		  ReturnData td = new ReturnData();
+		  if (List != null) {
+		   td.code = ReturnData.SUCCESS;
+		   td.msg = "查询成功";
+		   td.data = List;
+		  } else {
+		   td.code = ReturnData.ERROR;
+		   td.msg = "查询失败";
+		  }
+		  out.write(JSON.toJSONString(td));
+		  out.flush();
+		  out.close();
 
 	}
 
