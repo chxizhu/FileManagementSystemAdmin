@@ -89,24 +89,12 @@
 		<table class="layui-table">
 		    <tbody>
 		      <tr>
-		        <td class="tdbck">用户ID</td>
-		        <td><span id="txtclaid"></span></td>
+		        <td class="tdbck">部门ID</td>
+		        <td><span id="txtdepartmentid"></span></td>
 		      </tr>
 		      <tr>
-		        <td class="tdbck">真实姓名</td>
-		        <td><span id="txtadminuserrealname"></span></td>
-		      </tr>
-		      <tr>
-		        <td class="tdbck">用户类型</td>
-		        <td><span id="txtadminuserusertype"></span></td>
-		      </tr>
-		      <tr>
-		        <td class="tdbck">个性签名</td>
-		        <td colspan="4"><span id="txtadminuserdesc"></span></td>
-		      </tr>
-		      <tr>
-		        <td class="tdbck">创建时间</td>
-		        <td><span id="txtadmincreatetime"></span></td>
+		        <td class="tdbck">部门名称</td>
+		        <td><span id="txtdepartmentname"></span></td>
 		      </tr>
 		    </tbody>
 		  </table>
@@ -118,17 +106,17 @@
 		<blockquote class="layui-elem-quote not_border_left">
 			<form class="layui-form" action="">
 			  	<div class="layui-input-inline">
-					<input type="text" name="userName" id="userName" placeholder="请输入用户名或昵称" class="layui-input" autocomplete="off">
+					<input type="text" name="departmentName" id="departmentName" placeholder="请输入查询条件" class="layui-input" autocomplete="off">
 			    </div>
 			    <div class="layui-inline">
 	     	   		<button id="btnselfrontinfo" type="button" class="layui-btn layui-bg-blue">查询</button>
 			    </div>
-				<button type="button" class="layui-btn layui-bg-blue" id="addartType" lay-event="addartType" lay-filter="addartType" style="margin-left: 10px;">新增用户</button>
+				<button type="button" class="layui-btn layui-bg-blue" id="addartType" lay-event="addartType" lay-filter="addartType" style="margin-left: 10px;">添加部门</button>
 			</form>
 		</blockquote>
 		<!-- 条件筛选框End -->
 
-		<table class="layui-hide" name="blogUser" id="blogUser" lay-filter="blogUser"></table>
+		<table class="layui-hide" name="Department" id="Department" lay-filter="Department"></table>
 
 		<script type="text/html" id="barDemo">
 			<a class="layui-btn layui-btn-xs" lay-event="seluser">查看</a>
@@ -140,34 +128,25 @@
 			<div class="artTypeLayer">
 				<form class="layui-form" action="">
 					<div class="layui-form-item">
-						<label class="layui-form-label">用户名:</label>
+						<label class="layui-form-label">部门ID:</label>
 						<div class="layui-input-block">
-							<input type="text" name="addUserName" id="addUserName"
-								lay-verify="addUserName" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+							<input type="text" name="addDepartmentid" id="addDepartmentid"
+								lay-verify="addDepartmentid" autocomplete="off" placeholder="请输入部门ID" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">昵称:</label>
+						<label class="layui-form-label">部门名称:</label>
 						<div class="layui-input-block">
-							<input type="text" name="nickName" id="nickName" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+							<input type="text" name="addDepartmentname" id="addDepartmentname" autocomplete="off" placeholder="请输入部门名称" class="layui-input">
 						</div>
-					</div>
+					</div>		
+					
 					<div class="layui-form-item">
-						<label class="layui-form-label">真实姓名:</label>
+						<label class="layui-form-label">父级ID:</label>
 						<div class="layui-input-block">
-							<input type="text" name="pwd" id="pwd" autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
+							<input type="text" name="addUpDepartmentid" id="addUpDepartmentid" autocomplete="off" placeholder="请输入父级ID,没有请输0" class="layui-input">
 						</div>
-					</div>
-					<div class="layui-form-item">
-				      <label class="layui-form-label">用户类型:</label>
-				      <div class="layui-input-block">
-				       	<select id="usertype">
-						  <option value="00">请选择用户类型</option>
-						  <option value="1">普通用户</option>
-						  <option value="2">博主用户</option>
-						</select> 
-				      </div>
-				    </div>
+					</div>				
 				</form>
 			</div>
 		</div>
@@ -185,10 +164,10 @@
 	
 		/*加载表格*/
 		table.render({
-			elem : '#blogUser',
-			id:'blogUserid',
-			url : '../getalluser.action',
-			title : '博主用户数据表',
+			elem : '#Department',
+			id:'Departmentid',
+			url : '../deparment/deparmentlist',
+			title : '部门数据表',
 			height: "full-160",
 			skin : 'line',
 			even : true,
@@ -199,30 +178,18 @@
 					align : 'center',
 					width : 80
 				}, {
-					field : 'userid',
-					title : '用户名',
+					field : 'departmentid',
+					title : '部门ID',
 					align : 'center'
 				}, {
-					field : 'nickname',
+					field : 'departmentname',
 					align : 'center',
-					title : '昵称',
-				}, {
-					field : 'realname',
-					align : 'center',
-					title : '真实姓名'
-				},{
-					field : 'name',
-					align : 'center',
-					title : '用户类型'
-				},{
-					field : 'createtime',
-					align : 'center',
-					title : '创建时间'
-				},{
+					title : '部门名称',
+				} ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				} ] 
+				}] 
 			 ],
 			 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -235,45 +202,33 @@
 		
 		/* 点击查询对网站用户进行筛选 */
 		$("#btnselfrontinfo").click(function(){
-			var useridornickname=$("#userName").val().trim();
+			var departmentName=$("#departmentName").val().trim();
 			table.render({
-				elem : '#blogUser',
-				url : '../getalluser.action?useridornickname='+useridornickname,
+				elem : '#Department',
+				url : '../deparment/deparmentlistByName?departmentName='+departmentName,
 				title : '博主用户数据表',
 				height: "full-160",
 				skin : 'line',
 				even : true,
 				cols : [ 
-				     [ {
-						type : 'numbers',
-						title : '序号',
-						align : 'center',
-						width : 80
-					}, {
-						field : 'userid',
-						title : '用户名',
-						align : 'center'
-					}, {
-						field : 'nickname',
-						align : 'center',
-						title : '昵称',
-					}, {
-						field : 'realname',
-						align : 'center',
-						title : '真实姓名'
-					},{
-						field : 'name',
-						align : 'center',
-						title : '用户类型'
-					},{
-						field : 'createtime',
-						align : 'center',
-						title : '创建时间'
-					},{
-						title : '操作',
-						toolbar : '#barDemo',
-						align : 'center'
-					} ] 
+			     [ {
+					type : 'numbers',
+					title : '序号',
+					align : 'center',
+					width : 80
+				}, {
+					field : 'departmentid',
+					title : '部门ID',
+					align : 'center'
+				}, {
+					field : 'departmentname',
+					align : 'center',
+					title : '部门名称',
+				} ,{
+					title : '操作',
+					toolbar : '#barDemo',
+					align : 'center'
+				}] 
 				 ],
 				 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -287,40 +242,32 @@
 		
 		/* 添加一个网站用户 */
 		$("#addartType").click(function(){
-			$("#addUserName").val("");
-			$("#nickName").val("");
-			$("#pwd").val("");
+			$("#addDepartmentid").val("");
+			$("#addDepartmentname").val("");
+			$("#addUpDepartmentid").val("");
 			layer.open({
 				type : 1,
-				title : '网站用户添加',
+				title : '部门添加',
 				area : [ '460px', '335px' ],
 				shade : 0.4,
 				content : $('#add-blogUser'),
 				btn : [ '保存', '返回' ],
 				yes : function() {
-					var addUserName = $("#addUserName").val().trim();
-					var nickName = $("#nickName").val().trim();
-					var pwd = $("#pwd").val().trim();
-					var usertype = $("#usertype").val().trim();
+					var addDepartmentid = $("#addDepartmentid").val().trim();
+					var addDepartmentname = $("#addDepartmentname").val().trim();
+					var addUpDepartmentid = $("#addUpDepartmentid").val().trim();
 
-					if(addUserName == "") {
-						layer.tips('不能为空', '#addUserName');
+					if(addDepartmentid == "") {
+						layer.tips('不能为空', '#addDepartmentid');
 						return;
 					} 
-					if(nickName==""){
-						layer.tips('不能为空', '#nickName');
+					if(addDepartmentname==""){
+						layer.tips('不能为空', '#addDepartmentname');
 						return;
-					}
-					if(pwd == "") {
-						layer.tips('不能为空', '#pwd');
-						return;
-					}
-					if(usertype==00){
-						return;
-					}
+					}		
 					$.ajax({
 						type : 'get',
-						url : '../adduser.action?userid=' + addUserName + '&nickname=' + nickName+'&realname='+pwd+'&usertype='+usertype,
+						url : '../deparment/addDeparment?departmentid=' + addDepartmentid + '&departmentname=' + addDepartmentname+'&updepartmentid='+addUpDepartmentid,
 						datatype : 'json',
 						success : function(data) {
 							if (data.code == "0") {
@@ -328,7 +275,7 @@
 								  btn: ['确定'],
 								  icon:1
 								}, function(){
-									table.reload("blogUserid", { //此处是上文提到的 初始化标识id
+									table.reload("Departmentid", { //此处是上文提到的 初始化标识id
 						                where: {
 						                	keyword:data.code=='10001'
 						                }
@@ -351,20 +298,17 @@
 		});
 	
 		//表格工具栏事件 
-		table.on('tool(blogUser)', function(obj) {
+		table.on('tool(Department)', function(obj) {
 			var data = obj.data;
-			$("#txtclaid").text(data.userid);
-			$("#txtadminuserrealname").text(data.realname);
-			$("#txtadminuserusertype").text(data.name);
-			$("#txtadminuserdesc").text(data.signed);
-			$("#txtadmincreatetime").text(data.createtime);
+			$("#txtdepartmentid").text(data.departmentid);
+			$("#txtdepartmentname").text(data.departmentname);
 			
 			switch (obj.event) {
 				case 'seluser':
 					layer.open({
 				        type: 1, 
 				        title: '管理员信息详情',
-				        area: ['600px', '430px'],
+				        area: ['500px', '300px'],
 				        shade: 0.8,
 				        content: $('#adminuserdetail'),
 				        btn: ['返回'], 
@@ -386,14 +330,14 @@
 					}, function(){
 						$.ajax({
 			        		type: 'get',
-			        		url: "../deleteuser.action?userid=" + data.userid,
+			        		url: "../deparment/deletedeparment?departmentid=" + data.departmentid,
 			        		dataType: 'json',
 			        		success:function(data){
 			        			if(data.code == 0){
 			        				layer.confirm(data.msg, {
 									  btn: ['确定']
 									}, function(){
-										table.reload("blogUserid", { //此处是上文提到的 初始化标识id
+										table.reload("Departmentid", { //此处是上文提到的 初始化标识id
 							                where: {
 							                	keyword:data.code=='0'
 							                }

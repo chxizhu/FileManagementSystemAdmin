@@ -14,11 +14,13 @@ import business.basic.HibernateDAOimpl;
 import business.dao.SystemUserDAO;
 
 public class SystemUserDAOImpl implements SystemUserDAO {
+	
 	private HibernateDAO bdao = null;
 
 	public SystemUserDAOImpl() {
 		this.bdao = new HibernateDAOimpl();
 	}
+	
 	@Override
 	public List<VUser> getCommonUserUser(int currentPage, int pageSize){
 		String hql = "from VUser";

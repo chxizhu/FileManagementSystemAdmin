@@ -160,6 +160,7 @@ public class SystemUserController {
 			
 		}
 		
+		//添加用户
 		@RequestMapping(value = "/adduser")
 		public void addUser(
 				String userid, //用户ID
@@ -202,6 +203,7 @@ public class SystemUserController {
 			out.close();
 		}
 	
+		//删除用户
 		@RequestMapping(value = "/deleteuser")
 		public void deleteuser(
 				String userid,
