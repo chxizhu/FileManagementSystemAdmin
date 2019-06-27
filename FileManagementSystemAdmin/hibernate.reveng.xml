@@ -38,8 +38,14 @@
 			<generator class="assigned"></generator>
 		</primary-key>
 	</table>
-<table name="T_FileType" schema="dbo" catalog="FileManagementSystemDB"
-	class="model.TFileType">
+	<table name="T_FileType" schema="dbo"
+		catalog="FileManagementSystemDB" class="model.TFileType">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+<table name="T_Authority" schema="dbo" catalog="FileManagementSystemDB"
+	class="model.TAuthority">
 	<primary-key>
 		<generator class="assigned"></generator>
 	</primary-key>
