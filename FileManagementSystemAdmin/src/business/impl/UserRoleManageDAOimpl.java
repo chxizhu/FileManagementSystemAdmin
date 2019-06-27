@@ -18,7 +18,7 @@ public class UserRoleManageDAOimpl implements UserRoleManageDAO {
 		String hql = "from TRole";
 		if (str != null && !str.equals("")) {
 			hql += str+")";
-			System.out.println(hql);
+		
 		}
 		List<TRole> list = bado.selectByPage(hql, currentPage, pageSize);
 
