@@ -215,7 +215,7 @@
 		
 		/* 点击查询对网站用户进行筛选 */
 		$("#btnselfrontinfo").click(function(){
-			var useridornickname=$("#userName").val().trim();
+			var authorityname=$("#userName").val().trim();
 			table.render({
 				elem : '#blogUser',
 				url : '../RolePermission/RolePermission?str='+authorityname,
