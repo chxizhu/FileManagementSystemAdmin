@@ -36,6 +36,7 @@
 		<mapping resource="model/VUser.hbm.xml" />
 		<mapping resource="model/TDepartment.hbm.xml" />
 		<mapping resource="model/TFileType.hbm.xml" />
+		<mapping resource="model/TAuthority.hbm.xml" />
 
 	</session-factory>
 
