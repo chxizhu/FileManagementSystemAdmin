@@ -2,6 +2,8 @@ package business.impl;
 
 import java.util.List;
 
+import model.TFile;
+import model.TRole;
 import model.TsystemLog;
 import model.VFile;
 import business.basic.HibernateDAO;
@@ -34,6 +36,11 @@ public class userFileDAOimpl implements userFileDAO {
 		String hql = "SELECT COUNT(*) FROM VFile";
 		int num = bado.selectValue(hql);
 		return num;
+	}
+
+	@Override
+	public boolean deleteUserFile(int id) {
+		return bado.delete(TFile.class, id);
 	}
 
 }
