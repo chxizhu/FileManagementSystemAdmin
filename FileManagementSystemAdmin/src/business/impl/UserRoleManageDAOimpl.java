@@ -13,8 +13,7 @@ public class UserRoleManageDAOimpl implements UserRoleManageDAO {
 		this.bado = new HibernateDAOimpl();
 	}
 	@Override
-	public List<TRole> getUserRole(String str, int currentPage,
-			int pageSize) {
+	public List<TRole> getUserRole(String str, int currentPage,int pageSize) {
 		String hql = "from TRole";
 		if (str != null && !str.equals("")) {
 			hql += str+")";
