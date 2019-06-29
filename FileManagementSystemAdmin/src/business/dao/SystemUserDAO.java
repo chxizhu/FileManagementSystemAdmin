@@ -2,6 +2,7 @@ package business.dao;
 
 import java.util.List;
 
+import model.TDepartment;
 import model.TRole;
 import model.TUser;
 import model.VUser;
@@ -45,13 +46,13 @@ public interface SystemUserDAO {
 	 * 获取角色权限的类型，绑定到选择权限下拉框
 	 * @return
 	 */
-	public List getRoleTypes();
+	public List<TRole> getRoleTypes();
 	
 	/**
 	 * 获取所有部门，绑定到选择权限下拉框
 	 * @return
 	 */
-	public List getDepartmentTypes();
+	public List<TDepartment> getDepartmentTypes();
 	
 	/**
 	 * 前端用户添加

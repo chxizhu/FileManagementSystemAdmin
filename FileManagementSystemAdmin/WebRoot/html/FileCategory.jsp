@@ -89,71 +89,38 @@
 		<table class="layui-table">
 		    <tbody>
 		      <tr>
-		        <td class="tdbck">部门ID</td>
-		        <td><span id="txtdepartmentid"></span></td>
+		        <td class="tdbck">文件类型ID</td>
+		        <td><span id="txtfiletypeid"></span></td>
 		      </tr>
 		      <tr>
-		        <td class="tdbck">部门名称</td>
-		        <td><span id="txtdepartmentname"></span></td>
-		      </tr>
-		       <tr>
-		        <td class="tdbck">父级ID</td>
-		        <td><span id="txtupdepartmentid"></span></td>
+		        <td class="tdbck">文件类型名称</td>
+		        <td><span id="txtfiletypename"></span></td>
 		      </tr>
 		    </tbody>
 		  </table>
 	</div>
 	<!--弹框调用内容END-->	
 	
-	<!-- 用户信息修改Start -->
-		<div id="updateadminuserdetail" class="adminuserdetail">
-			<div class="artTypeLayer">
-				<form class="layui-form" action="">
-					<div class="layui-form-item">
-						<label class="layui-form-label">部门ID:</label>
-						<div class="layui-input-block">
-							<input type="text" name="txtdepartmentid" id="txtdepartmentid"
-								lay-verify="txtdepartmentid" autocomplete="off"  class="layui-input">
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">部门名称:</label>
-						<div class="layui-input-block">
-							<input type="text" name="txtdepartmentname" id="txtdepartmentname" autocomplete="off"  class="layui-input">
-						</div>
-					</div>		
-					
-					<div class="layui-form-item">
-						<label class="layui-form-label">父级ID:</label>
-						<div class="layui-input-block">
-							<input type="text" name="txtupdepartmentid" id="txtupdepartmentid" autocomplete="off" class="layui-input">
-						</div>
-					</div>				
-				</form>
-			</div>
-		</div>
-		<!-- 用户信息修改End -->
 
 	<div class="blogUser-con">
 		<!-- 条件筛选框Start -->
 		<blockquote class="layui-elem-quote not_border_left">
 			<form class="layui-form" action="">
 			  	<div class="layui-input-inline">
-					<input type="text" name="departmentName" id="departmentName" placeholder="请输入查询条件" class="layui-input" autocomplete="off">
+					<input type="text" name="typename" id="typename" placeholder="请输入查询条件" class="layui-input" autocomplete="off">
 			    </div>
 			    <div class="layui-inline">
 	     	   		<button id="btnselfrontinfo" type="button" class="layui-btn layui-bg-blue">查询</button>
 			    </div>
-				<button type="button" class="layui-btn layui-bg-blue" id="addartType" lay-event="addartType" lay-filter="addartType" style="margin-left: 10px;">添加部门</button>
+				<button type="button" class="layui-btn layui-bg-blue" id="addartType" lay-event="addartType" lay-filter="addartType" style="margin-left: 10px;">添加文件类别</button>
 			</form>
 		</blockquote>
 		<!-- 条件筛选框End -->
 
-		<table class="layui-hide" name="Department" id="Department" lay-filter="Department"></table>
+		<table class="layui-hide" name="FileType" id="FileType" lay-filter="FileType"></table>
 
 		<script type="text/html" id="barDemo">
 			<a class="layui-btn layui-btn-xs" lay-event="seluser">查看</a>
-			<a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="update">修改</a>
 			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 		</script>
 
@@ -162,25 +129,19 @@
 			<div class="artTypeLayer">
 				<form class="layui-form" action="">
 					<div class="layui-form-item">
-						<label class="layui-form-label">部门ID:</label>
+						<label class="layui-form-label">文件类型ID:</label>
 						<div class="layui-input-block">
-							<input type="text" name="addDepartmentid" id="addDepartmentid"
-								lay-verify="addDepartmentid" autocomplete="off" placeholder="请输入部门ID" class="layui-input">
+							<input type="text" name="addtypeid" id="addtypeid"
+								lay-verify="addtypeid" autocomplete="off" placeholder="请输入文件类型ID" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">部门名称:</label>
+						<label class="layui-form-label">类型名称:</label>
 						<div class="layui-input-block">
-							<input type="text" name="addDepartmentname" id="addDepartmentname" autocomplete="off" placeholder="请输入部门名称" class="layui-input">
+							<input type="text" name="addtypename" id="addtypename" autocomplete="off" placeholder="请输入文件类型名称" class="layui-input">
 						</div>
 					</div>		
-					
-					<div class="layui-form-item">
-						<label class="layui-form-label">父级ID:</label>
-						<div class="layui-input-block">
-							<input type="text" name="addUpDepartmentid" id="addUpDepartmentid" autocomplete="off" placeholder="请输入父级ID,没有请输0" class="layui-input">
-						</div>
-					</div>				
+							
 				</form>
 			</div>
 		</div>
@@ -198,10 +159,10 @@
 	
 		/*加载表格*/
 		table.render({
-			elem : '#Department',
-			id:'Departmentid',
-			url : '../deparment/deparmentlist',
-			title : '部门数据表',
+			elem : '#FileType',
+			id:'FileTypeID',
+			url : '../filetype/filetypelist',
+			title : '文件类别数据表',
 			height: "full-160",
 			skin : 'line',
 			even : true,
@@ -212,18 +173,18 @@
 					align : 'center',
 					width : 80
 				}, {
-					field : 'departmentid',
-					title : '部门ID',
+					field : 'typeid',
+					title : '文件类型类型ID',
 					align : 'center'
 				}, {
-					field : 'departmentname',
+					field : 'typename',
 					align : 'center',
-					title : '部门名称',
-				} ,{
+					title : '文件类型名称',
+				}  ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				}] 
+				}]  
 			 ],
 			 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -236,11 +197,11 @@
 		
 		/* 点击查询对网站用户进行筛选 */
 		$("#btnselfrontinfo").click(function(){
-			var departmentName=$("#departmentName").val().trim();
+			var typename=$("#typename").val().trim();
 			table.render({
-				elem : '#Department',
-				url : '../deparment/deparmentlistByName?departmentName='+departmentName,
-				title : '博主用户数据表',
+				elem : '#FileType',
+				url : '../filetype/filetypelistByName?filetypeName='+typename,
+				title : '文件类别数据表',
 				height: "full-160",
 				skin : 'line',
 				even : true,
@@ -251,18 +212,18 @@
 					align : 'center',
 					width : 80
 				}, {
-					field : 'departmentid',
-					title : '部门ID',
+					field : 'typeid',
+					title : '文件类型类型ID',
 					align : 'center'
 				}, {
-					field : 'departmentname',
+					field : 'typename',
 					align : 'center',
-					title : '部门名称',
-				} ,{
+					title : '文件类型名称',
+				}  ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				}] 
+				}]  
 				 ],
 				 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -276,9 +237,8 @@
 		
 		/* 添加一个网站用户 */
 		$("#addartType").click(function(){
-			$("#addDepartmentid").val("");
-			$("#addDepartmentname").val("");
-			$("#addUpDepartmentid").val("");
+			$("#addtypeid").val("");
+			$("#addtypename").val("");
 			layer.open({
 				type : 1,
 				title : '部门添加',
@@ -287,21 +247,20 @@
 				content : $('#add-blogUser'),
 				btn : [ '保存', '返回' ],
 				yes : function() {
-					var addDepartmentid = $("#addDepartmentid").val().trim();
-					var addDepartmentname = $("#addDepartmentname").val().trim();
-					var addUpDepartmentid = $("#addUpDepartmentid").val().trim();
+					var addtypeid = $("#addtypeid").val().trim();
+					var addtypename = $("#addtypename").val().trim();
 
-					if(addDepartmentid == "") {
-						layer.tips('不能为空', '#addDepartmentid');
+					if(addtypeid == "") {
+						layer.tips('不能为空', '#addtypeid');
 						return;
 					} 
-					if(addDepartmentname==""){
-						layer.tips('不能为空', '#addDepartmentname');
+					if(addtypename==""){
+						layer.tips('不能为空', '#addtypename');
 						return;
 					}		
 					$.ajax({
 						type : 'get',
-						url : '../deparment/addDeparment?departmentid=' + addDepartmentid + '&departmentname=' + addDepartmentname+'&updepartmentid='+addUpDepartmentid,
+						url : '../filetype/addFileType?typeid=' + addtypeid + '&typename=' + addtypename,
 						datatype : 'json',
 						success : function(data) {
 							if (data.code == "0") {
@@ -309,7 +268,7 @@
 								  btn: ['确定'],
 								  icon:1
 								}, function(){
-									table.reload("Departmentid", { //此处是上文提到的 初始化标识id
+									table.reload("FileTypeID", { //此处是上文提到的 初始化标识id
 						                where: {
 						                	keyword:data.code=='10001'
 						                }
@@ -333,11 +292,10 @@
 	
 		//表格工具栏事件 
 		//查看
-		table.on('tool(Department)', function(obj) {
+		table.on('tool(FileType)', function(obj) {
 			var data = obj.data;
-			$("#txtdepartmentid").text(data.departmentid);
-			$("#txtdepartmentname").text(data.departmentname);
-			$("#txtupdepartmentid").text(data.updepartmentid);
+			$("#txtfiletypeid").text(data.typeid);
+			$("#txtfiletypename").text(data.typename);
 			
 			switch (obj.event) {
 				case 'seluser':
@@ -357,26 +315,7 @@
 						}
 				    });
 				break;
-				
-			   //修改按钮操作
-				case 'update':
-					layer.open({
-				        type: 1, 
-				        title: '管理员信息详情',
-				        area: ['500px', '300px'],
-				        shade: 0.8,
-				        content: $('#updateadminuserdetail'),
-				        btn: ['返回'], 
-				        yes: function(){
-				          layer.closeAll();
-				          $(".updateadminuserdetail").css("display","none");
-				        },
-				        cancel: function(){ 
-						  $(".updateadminuserdetail").css("display","none");
-						}
-				    });
-				break;
-				
+			
 				//删除按钮操作
 				case 'del':
 					layer.confirm('确定要删除么？', {
@@ -385,14 +324,14 @@
 					}, function(){
 						$.ajax({
 			        		type: 'get',
-			        		url: "../deparment/deletedeparment?departmentid=" + data.departmentid,
+			        		url: "../filetype/deleteFileType?filetypeid=" + data.typeid,
 			        		dataType: 'json',
 			        		success:function(data){
 			        			if(data.code == 0){
 			        				layer.confirm(data.msg, {
 									  btn: ['确定']
 									}, function(){
-										table.reload("Departmentid", { //此处是上文提到的 初始化标识id
+										table.reload("FileTypeID", { //此处是上文提到的 初始化标识id
 							                where: {
 							                	keyword:data.code=='0'
 							                }

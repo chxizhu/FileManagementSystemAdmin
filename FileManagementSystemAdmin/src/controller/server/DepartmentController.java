@@ -78,7 +78,7 @@ public class DepartmentController {
 				   exp.andLike("departmentname", departmentName, String.class);
 				  }
 				
-				List<TDepartment> List = ddao.getDepartmentByName(exp.toString(),page,limit);
+				List<TDepartment> list = ddao.getDepartmentByName(exp.toString(),page,limit);
 				
 				int size = ddao.getDepartmentByNameAmount(exp.toString());
 				
@@ -87,11 +87,11 @@ public class DepartmentController {
 				response.setContentType("application/json");
 				PrintWriter out = response.getWriter();
 				ReturnData td = new ReturnData();
-				if (List != null) {
+				if (list != null) {
 					td.code = ReturnData.SUCCESS;
 					td.count = size;
 					td.msg = "查询成功";
-					td.data = List;
+					td.data = list;
 				} else {
 					td.code = ReturnData.ERROR;
 					td.msg = "查询失败";
@@ -102,7 +102,7 @@ public class DepartmentController {
 
 			}
 			
-			//添加用户
+			//添加部门
 			@RequestMapping(value = "/addDeparment")
 			public void addDeparment(
 					int departmentid, //部门ID
@@ -139,7 +139,7 @@ public class DepartmentController {
 				out.close();
 			}
 		
-			//删除用户
+			//删除部门
 			@RequestMapping(value = "/deletedeparment")
 			public void deletedeparment(
 					int departmentid,
@@ -147,7 +147,6 @@ public class DepartmentController {
 					HttpServletResponse response,
 					Model model) throws IOException {
 
-				SystemUserDAO sudao = new SystemUserDAOImpl();
 				DepartmentDAO ddao = new DepartmentDAOImpl();
 
 				 boolean num= ddao.deleteDepartment(departmentid);

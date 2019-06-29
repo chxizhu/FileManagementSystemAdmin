@@ -2,56 +2,56 @@ package business.dao;
 
 import java.util.List;
 
-import model.TDepartment;
-import model.TUser;
+import model.TFileType;
 
-public interface DepartmentDAO {
+public interface FileCategoryDAO {
 
 	/**
-	 * 查询所有部门 
+	 * 查询所有文件类型
 	 * @param currentPage 按分页查询的当前页
 	 * @param pageSize 按分页查询的每页数量
-	 * @return  List<VUser> 
+	 * @return  List<TFileType> 
 	 */
-	public List<TDepartment> getDepartment(int currentPage, int pageSize);
+	public List<TFileType> getFileType(int currentPage, int pageSize);
 	
 	/**
-	 * 查询所有部门 的数量
+	 * 查询所有文件类型的数量
 	 * @param wherecondition 如："userRole = '超级管理员' and userid = 'zhangjs'" 
 	 * @return
 	 */
-	public int getDepartmentAmount();
+	public int getFileTypeAmount();
 	
 	/**
-	 * 按部门名称查询部门 
+	 * 按文件类型名称查询文件类型
 	* @param wherecondition 组合查询条件字符串,如："userRole = '超级管理员' and userid = 'zhangjs'" 
 	 * @param currentPage 按分页查询的当前页
 	 * @param pageSize 按分页查询的每页数量
 	 * @return  List<VUser> 
 	 */
-	public List<TDepartment> getDepartmentByName(String wherecondition, int currentPage, int pageSize);
+	public List<TFileType> getFileTypeByName(String wherecondition, int currentPage, int pageSize);
 	
 	/**
-	 * 按用户ID查询前端登用户总数
+	 * 按文件类型名称查询文件类型总数
 	* @param wherecondition 组合查询条件字符串,如："userRole = '超级管理员' and userid = 'zhangjs'" 
 	 * @param currentPage 按分页查询的当前页
 	 * @param pageSize 按分页查询的每页数量
 	 * @return  List<VUser> 
 	 */
-	public int getDepartmentByNameAmount(String wherecondition);
+	public int getFileTypeByNameAmount(String wherecondition);
 	
 	/**
-	 * 添加部门
-	 * @param TRole TRole 对象
+	 * 添加文件类型
+	 * @param TFileType 对象
 	 * @return  成功返回0失败返回1
 	 */
-	public int addDepartment(TDepartment department);
+	public int addFileType(TFileType filetype);
 	
 	/**
-	 * 通过id进行删除部门
+	 * 通过id进行删除文件类型
 	 * @param int id
 	 * @param 
 	 * @return 成功返回0 失败返回1 
 	 */
-	public boolean deleteDepartment(int departmentid);
+	public boolean deleteFileType(int filetypeid);
+	
 }

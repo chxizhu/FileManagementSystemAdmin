@@ -8,7 +8,7 @@
     <class name="model.TAdminUser" table="T_AdminUser" schema="dbo" catalog="FileManagementSystemDB">
         <id name="userid" type="java.lang.String">
             <column name="userid" length="30" />
-            <generator class="identity"></generator>
+            <generator class="assigned"></generator>
         </id>
         <property name="mobile" type="java.lang.String">
             <column name="mobile" length="11" />
@@ -26,7 +26,7 @@
             <column name="realname" not-null="true" />
         </property>
         <property name="createtime" type="java.lang.String">
-            <column name="createtime" length="23" not-null="true" />
+            <column name="createtime" length="23" />
         </property>
         <property name="loginstatus" type="java.lang.Integer">
             <column name="loginstatus" />

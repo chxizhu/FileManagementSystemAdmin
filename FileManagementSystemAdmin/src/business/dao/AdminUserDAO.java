@@ -2,34 +2,35 @@ package business.dao;
 
 import java.util.List;
 
-import model.TDepartment;
-import model.TUser;
+import model.TAdminRole;
+import model.TAdminUser;
+import model.VAdminUser;
 
-public interface DepartmentDAO {
-
+public interface AdminUserDAO {
+	
 	/**
-	 * 查询所有部门 
+	 * 查询后台所有登用户 
 	 * @param currentPage 按分页查询的当前页
 	 * @param pageSize 按分页查询的每页数量
 	 * @return  List<VUser> 
 	 */
-	public List<TDepartment> getDepartment(int currentPage, int pageSize);
+	public List<VAdminUser> getAdminUser(int currentPage, int pageSize);
 	
 	/**
-	 * 查询所有部门 的数量
+	 * 查询后台所有登用户 的数量
 	 * @param wherecondition 如："userRole = '超级管理员' and userid = 'zhangjs'" 
 	 * @return
 	 */
-	public int getDepartmentAmount();
+	public int getAdminUserAmount();
 	
 	/**
-	 * 按部门名称查询部门 
+	 * 按用户ID,角色等查询前端登用户
 	* @param wherecondition 组合查询条件字符串,如："userRole = '超级管理员' and userid = 'zhangjs'" 
 	 * @param currentPage 按分页查询的当前页
 	 * @param pageSize 按分页查询的每页数量
 	 * @return  List<VUser> 
 	 */
-	public List<TDepartment> getDepartmentByName(String wherecondition, int currentPage, int pageSize);
+	public List<VAdminUser> getAdminUserByID(String wherecondition, int currentPage, int pageSize);
 	
 	/**
 	 * 按用户ID查询前端登用户总数
@@ -38,20 +39,28 @@ public interface DepartmentDAO {
 	 * @param pageSize 按分页查询的每页数量
 	 * @return  List<VUser> 
 	 */
-	public int getDepartmentByNameAmount(String wherecondition);
+	public int getAdminUserByIDAmount(String wherecondition);
 	
 	/**
-	 * 添加部门
-	 * @param TRole TRole 对象
+	 * 获取角色权限的类型，绑定到选择权限下拉框
+	 * @return
+	 */
+	public List<TAdminRole> getRoleTypes();
+	
+	
+	/**
+	 * 前端用户添加
+	 * @param TAdminUser 对象
 	 * @return  成功返回0失败返回1
 	 */
-	public int addDepartment(TDepartment department);
+	public int addAdminUser(TAdminUser user);
 	
 	/**
-	 * 通过id进行删除部门
+	 * 通过id进行删除
 	 * @param int id
 	 * @param 
 	 * @return 成功返回0 失败返回1 
 	 */
-	public boolean deleteDepartment(int departmentid);
+	public boolean deleteAdminUser(String id);
+
 }

@@ -32,7 +32,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 	@Override
 	public List<TDepartment> getDepartmentByName(String wherecondition,
 			int currentPage, int pageSize) {
-		String hql = "from TDepartment";
+		  String hql = "from TDepartment";
 		  if (wherecondition != null && !wherecondition.equals("")) {
 		   hql += wherecondition+")";
 		  
@@ -44,7 +44,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 
 	@Override
 	public int getDepartmentByNameAmount(String wherecondition) {
-		String hql = "from TDepartment";
+		String hql = "Select count(*) from TDepartment";
 		  if (wherecondition != null && !wherecondition.equals("")) {
 		   hql += wherecondition+")";
 		  
