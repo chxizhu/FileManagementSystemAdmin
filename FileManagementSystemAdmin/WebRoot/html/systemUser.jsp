@@ -122,7 +122,7 @@
 		<blockquote class="layui-elem-quote not_border_left">
 			<form class="layui-form" action="">
 			  	<div class="layui-input-inline">
-					<input type="text" name="userName" id="userName" placeholder="请输入用户账号" class="layui-input" autocomplete="off">
+					<input type="text" name="userName" id="userName" placeholder="请输入查询条件" class="layui-input" autocomplete="off">
 			    </div>
 			    <div class="layui-inline">
 	     	   		<button id="btnselfrontinfo" type="button" class="layui-btn layui-bg-blue">查询</button>
@@ -166,7 +166,7 @@
 					
 					 <div class="layui-form-item">
 					    <label class="layui-form-label">用户性别:</label>
-					    <div class="layui-input-block">
+					    <div class="layui-input-block" id="usersex">
 					      <input type="radio" name="sex" id="sex" value="男" title="男" checked>
 					      <input type="radio" name="sex" id="sex" value="女" title="女">
 					    </div>
@@ -217,7 +217,7 @@
 			elem : '#blogUser',
 			id:'systemUser',
 			url : '../systemuser/commonuser',
-			title : '博主用户数据表',
+			title : '前端用户数据表',
 			height: "full-160",
 			skin : 'line',
 			even : true,
@@ -272,7 +272,7 @@
 			table.render({
 				elem : '#blogUser',
 				url : '../systemuser/getcommonuserUserByID?userName='+useridornickname,
-				title : '博主用户数据表',
+				title : '前端用户数数据表',
 				height: "full-160",
 				skin : 'line',
 				even : true,
@@ -399,7 +399,7 @@
 			$("#userID").val("");
 			$("#inUserName").val("");
 			$("#pwd").val("");
-			$("#sex").val("");
+			$("#usersex").val("");
 			$("#phoneNum").val("");
 			$("#roleid").val("");
 			$("#departmentid").val("");
@@ -415,6 +415,7 @@
 					var inUserName = $("#inUserName").val().trim();
 					var pwd = $("#pwd").val().trim();
 					var sex = $("#sex").val().trim();
+					var sex = $('#usersex input[name="sex"]:checked ').val();
 					var phoneNum = $("#phoneNum").val().trim();
 					var roleid = $("#roleid").val();
 					var departmentid = $("#departmentid").val();
@@ -438,12 +439,12 @@
 						layer.tips('不能为空', '#phoneNum');
 						return;
 					} 
-		 			if(roleid==""){
+		 			if(roleid=="00"){
 						layer.tips('不能为空', '#roleid');
 						return;
 					}
 					
-					if(departmentid==""){
+					if(departmentid=="00"){
 					layer.tips('不能为空', '#departmentid');
 						return;
 					}  

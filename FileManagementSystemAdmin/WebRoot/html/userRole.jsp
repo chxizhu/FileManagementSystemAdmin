@@ -135,7 +135,7 @@
 						<label class="layui-form-label">id:</label>
 						<div class="layui-input-block">
 							<input type="text" name="addUserName" id="addUserName"
-								lay-verify="addUserName" autocomplete="off" placeholder="请输入用户名" class="layui-input">
+								 autocomplete="off" placeholder="请输入用户名" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -148,11 +148,8 @@
 					<div class="layui-form-item">
 				      <label class="layui-form-label">角色权限:</label>
 				      <div class="layui-input-block">
-				       	<select id="usertype">
-						  <option value="">请选择用户类型</option>
-						  <option value="101">个人</option>
-						  <option value="102">部门</option>
-						    <option value="103">公司</option>
+				       	<select id="addusertypeidqqqqq" name="addusertypeidqqqqq">
+						 <option value="00" >请选择权限</option>				
 						</select> 
 				      </div>
 				    </div>
@@ -175,7 +172,7 @@
 		table.render({
 			elem : '#blogUser',
 			id:'blogUserid',
-			url : '../systemmodel/roleManage',
+			url : '../systemmodel/rolelist',
 			title : '博主用户数据表',
 			height: "full-160",
 			skin : 'line',
@@ -218,7 +215,7 @@
 			var useridornickname=$("#userName").val().trim();
 			table.render({
 				elem : '#blogUser',
-				url : '../systemmodel/roleManage?userName='+useridornickname,
+				url : '../systemmodel/roleListByName?userName='+useridornickname,
 				title : '博主用户数据表',
 				height: "full-160",
 				skin : 'line',
@@ -261,7 +258,7 @@
 		$("#addartType").click(function(){
 			$("#addUserName").val("");
 			$("#nickName").val("");
-			$("#usertype").val("");
+			$("#addusertypeidqqqqq").val("");
 			layer.open({
 				type : 1,
 				title : '网站用户添加',
@@ -272,7 +269,7 @@
 				yes : function() {
 					var addUserName = $("#addUserName").val().trim();
 					var nickName = $("#nickName").val().trim();
-					var usertype = $("#usertype").val().trim();
+					var addusertypeidqqqqq = $("#addusertypeidqqqqq").val();
 
 					if(addUserName == "") {
 						layer.tips('不能为空', '#addUserName');
@@ -282,12 +279,13 @@
 						layer.tips('不能为空', '#nickName');
 						return;
 					}
-					if(usertype==""){
+					 if(addusertypeidqqqqq=="00"){
+						layer.tips('不能为空', '#addusertypeidqqqqq');
 						return;
-					}
+					}  
 					$.ajax({
 						type : 'get',
-						url : '../systemmodel/addrole?roleid=' + addUserName + '&rolename=' + nickName+'&authorityId='+usertype,
+						url : '../systemmodel/addrole?roleid=' + addUserName + '&rolename=' + nickName+'&authorityId='+addusertypeidqqqqq,
 						datatype : 'json',
 						success : function(data) {
 							if (data.code == "0") {
@@ -316,6 +314,32 @@
 				btn2 : function() {layer.closeAll();}
 			});
 		});
+		
+		/* 动态加载用户角色 */
+	$(function() {
+				$.ajax({
+					url : "../systemmodel/getAuthoritylist",
+					type : "POST",
+					data : null,
+					dataType : 'json',
+					contentType : 'application/json;charset=UTF-8',//contentType 很重要
+					success : function(e) {
+						//alert(e.msg+"\n"+e.flag+"\n"+ JSON.stringify(e));
+						//alert(e.resultoObject[1]);
+						var s = $("#addusertypeidqqqqq").html();		
+						var str = "";			
+						for(var i=0;i<e.resultObject.length;i++){					
+							str += '<option value=' + e.resultObject[i].authorityid + '>' + e.resultObject[i].authorityname + '</option>';
+						}
+						$("#addusertypeidqqqqq").append(str);
+						form.render("select");
+					},
+					error : function(e) {
+						alert("error:"+e.msg);
+					}
+		
+				})
+			});
 	
 		//表格工具栏事件 
 		table.on('tool(blogUser)', function(obj) {
