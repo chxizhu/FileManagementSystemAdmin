@@ -40,7 +40,7 @@ public class SystemUserController {
 				Model model) throws IOException {
 			
 			SystemUserDAO sudao = new SystemUserDAOImpl();
-			List<VUser> List = sudao.getCommonUserUser(page,limit);
+			List<VUser> list = sudao.getCommonUserUser(page,limit);
 			
 			int size = sudao.getCommonUserUserAmount();
 			
@@ -49,11 +49,11 @@ public class SystemUserController {
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
 			ReturnData td = new ReturnData();
-			if (List != null) {
+			if (list != null) {
 				td.code = ReturnData.SUCCESS;
 				td.count = size;
 				td.msg = "查询成功";
-				td.data = List;
+				td.data = list;
 			} else {
 				td.code = ReturnData.ERROR;
 				td.msg = "查询失败";
