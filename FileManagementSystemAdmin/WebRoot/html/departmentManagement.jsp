@@ -152,10 +152,10 @@
 		<table class="layui-hide" name="Department" id="Department" lay-filter="Department"></table>
 
 		<script type="text/html" id="barDemo">
-			<a class="layui-btn layui-btn-xs" lay-event="seluser">查看</a>
-			<a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="update">修改</a>
+			<a class="layui-btn layui-btn-xs" lay-event="seluser">查看</a>			
 			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 		</script>
+		<!-- <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="update">修改</a> -->
 
 		<!-- 用户信息添加Start -->
 		<div id="add-blogUser">

@@ -19,23 +19,30 @@
 		.navacolor{
 			color:#148cf1;
 		}
+		.layuibgblack{
+		color:#2F4056;
+		}
+		.font{
+		color:	#FFFFFF;
+		}
 		</style>
 	</head>
 	
 	<body>
 		<!-- 顶部开始 -->
-		<div class="container layui-bg-blue">
+		<div class="container layui-bg-black">
 			<div class="logo">
 				<a href="../html/index.jsp">文件资源管理后台端</a>
 			</div>
 			<div class="left_open">
 				<i title="展开左侧栏" class="iconfont">&#xe699;</i>
 			</div>
-			<ul class="layui-nav  fast-add layui-layout-right layui-bg-blue" lay-filter="">
+			<ul class="layui-nav  fast-add layui-layout-right layui-bg-black" lay-filter="">
 			
 			 
 				<li class="layui-nav-item">
-					<a href="javascript:;">欢迎您：${user.name } ${user.realname }<span id="userrole"></span></a>
+					<a href="javascript:;"><span class="font">欢迎您：${user.name } ${user.realname }<span id="userrole"></span>
+					</span></a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a id="loginout" class="loginout" href="javascript:">退出系统</a>
@@ -77,8 +84,9 @@
 		<!-- 底部开始 -->
 		<div class="footer">
 			<center>
-			<div class="copyright">Copyright ©2018 云南工商学院.软件技术</div>
+			<div class="layuibgblack"><span class="font">Copyright ©2018 云南工商学院.软件技术</span></div>
 			</center>
+			
 		</div>
 		<!-- 底部结束 -->
 		

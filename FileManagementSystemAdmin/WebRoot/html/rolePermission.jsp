@@ -174,8 +174,8 @@
 		/*加载表格*/
 		table.render({
 			elem : '#blogUser',
-			id:'blogUser',
-			url : '../RolePermission/RolePermission',
+			id:'blogUserid',
+			url : '../RolePermission/authoritylist',
 			title : '博主用户数据表',
 			height: "full-160",
 			skin : 'line',
