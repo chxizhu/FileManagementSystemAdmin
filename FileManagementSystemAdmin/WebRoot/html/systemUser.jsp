@@ -175,7 +175,7 @@
 					  <div class="layui-form-item">
 						<label class="layui-form-label">用户号码:</label>
 						<div class="layui-input-block">
-							<input type="text" name="phoneNum" id="phoneNum" autocomplete="off" placeholder="请输入用户号码" class="layui-input">
+							<input type="text" name="phoneNum" id="phoneNum" autocomplete="off" lay-verify="phone" placeholder="请输入用户号码" class="layui-input">
 						</div>
 					</div>
 			
