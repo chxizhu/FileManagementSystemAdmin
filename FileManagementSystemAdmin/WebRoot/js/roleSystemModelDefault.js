@@ -74,7 +74,13 @@ layui.use([ 'table', 'form', 'layer', 'laydate', 'laytpl', 'element' ],function(
 					field: 'parentName',
 					align: 'center',
 					title: '父菜单名称'
-				}, {
+				} ,
+				{field:'isedit', 
+					title:'性别',
+					width:85, 
+					templet: '#switchTpl', 
+					unresize: true}, 
+				{
 					field: 'isedit',
 					align: 'center',
 					title: '设置权限',

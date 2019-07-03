@@ -86,7 +86,7 @@
 <body>
 	<!--弹框调用内容Start-->
 	<div id="adminuserdetail" class="adminuserdetail">			
-		<table class="layui-table">
+		<!-- <table class="layui-table">
 		    <tbody>
 		      <tr>
 		        <td class="tdbck">角色名称</td>
@@ -101,58 +101,196 @@
 		        <td><span id="txtIsEdit"></span></td>
 		      </tr>		   
 		    </tbody>
-		  </table>
+		  </table> -->
+		  
+		  <form class="layui-form" action="">		
+				
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单名称</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title"  id="txtChineseName" autocomplete="off" placeholder="菜单名称" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">中文名称</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单中文名称" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单URL</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单URL" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">accesslevel</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入accesslevel" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单层级</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单层级" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单父级id</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单父级id" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单顺序</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单顺序" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">图片URL</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单图片URL" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">value</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="value" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">systemname</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="systemname" class="layui-input">
+				    </div>
+				  </div>
+				  			
+				    		
+					 <div class="layui-form-item">
+					    <label class="layui-form-label">是否可用:</label>
+					    <div class="layui-input-block" id="addIsEdit">
+					      <input type="radio" name="IsEdit" id="IsEdit" value="True" title="True" checked>
+					      <input type="radio" name="IsEdit" id="IsEdit" value="False" title="False">
+					    </div>
+					  </div>
+					  					 								    
+				    
+				</form>
 	</div>
 	<!--弹框调用内容END-->	
 
 	<div class="blogUser-con">
 		<!-- 条件筛选框Start -->
 		<blockquote class="layui-elem-quote not_border_left">
-			<form class="layui-form" action="">
+			<form class="layui-form" action="">  
 			  	<div class="layui-input-inline">
-					<input type="text" name="userName" id="userName" placeholder="请输入查询条件" class="layui-input" autocomplete="off">
+					<input type="text" name="userName" id="userName" placeholder="请输入菜单名称" class="layui-input" autocomplete="off">
 			    </div>
 			    <div class="layui-inline">
 	     	   		<button id="btnselfrontinfo" type="button" class="layui-btn layui-bg-blue">查询</button>
 			    </div>
-				<button type="button" class="layui-btn layui-bg-blue" id="btnAddUser" lay-event="btnAddUser" lay-filter="btnAddUser" style="margin-left: 10px;">添加角色权限</button>
+				<button type="button" class="layui-btn layui-bg-blue" id="btnAddUser" lay-event="btnAddUser" lay-filter="btnAddUser" style="margin-left: 10px;">添加菜单</button>
 			</form>
 		</blockquote>
 		<!-- 条件筛选框End -->
 
 		<table class="layui-hide" name="AdminRoleSystem" id="AdminRoleSystem" lay-filter="AdminRoleSystem"></table>
 
-		<script type="text/html" id="switchTpl">
-  			<input type="checkbox" name="isedit" value="{{d.isedit}}" lay-skin="switch" lay-text="启用|关闭" lay-filter="sexDemo" {{ d.isedit == true ? 'checked' : '' }}>
-	</script>
+			<!-- <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a> -->
 		<script type="text/html" id="barDemo">
-			<a class="layui-btn layui-btn-xs" lay-event="seluser">查看</a>
-			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+			<a class="layui-btn layui-btn-xs" lay-event="seluser">修改</a>
+			
+		</script>
+		<script type="text/html" id="checkboxTpl">
+  			<input type="checkbox" name="isdelete" value="{{d.isdelete}}" title="启用" lay-filter="lockDemo" {{ d.isdelete == 0 ? 'checked' : '' }}>
 		</script>
 
 		<!-- 用户信息添加Start -->
 		<div id="add-blogUser">
 			<div class="artTypeLayer">
-				<form class="layui-form" action="">					
-					
-					<div class="layui-form-item">
-				      <label class="layui-form-label">角色名称:</label>
-				      <div class="layui-input-block">				       
-				       	<select name="addRoleid" id="addRoleid" lay-filter="roleid">
-						 <option value="00">请选择角色</option>						
-					    </select>					  
-				      </div>
+				<form class="layui-form" action="">		
+				
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单名称</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单名称" class="layui-input">
 				    </div>
-				    
-				    <div class="layui-form-item">
-				      <label class="layui-form-label">菜单名称:</label>
-				      <div class="layui-input-block">				       
-				       	<select name="addSysid" id="addSysid">
-						 <option value="00">请选择菜单</option>						
-					    </select>					  
-				      </div>
-				    </div>			
-					
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">中文名称</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单中文名称" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单URL</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单URL" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">accesslevel</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入accesslevel" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单层级</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单层级" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单父级id</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单父级id" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">菜单顺序</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单顺序" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">图片URL</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单图片URL" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">value</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="value" class="layui-input">
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">systemname</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="systemname" class="layui-input">
+				    </div>
+				  </div>
+				  			
+				    		
 					 <div class="layui-form-item">
 					    <label class="layui-form-label">是否可用:</label>
 					    <div class="layui-input-block" id="addIsEdit">
@@ -181,7 +319,7 @@
 		table.render({
 			elem : '#AdminRoleSystem',
 			id:'AdminRoleSystemID',
-			url : '../adiminrolesystem/adiminrolesystemlist',
+			url : '../AdminRoleMenu/adminrolelistByName',
 			title : '管理员角色权限数据表',
 			height: "full-160",
 			skin : 'line',
@@ -191,25 +329,50 @@
 					type : 'numbers',
 					title : '序号',
 					align : 'center',
-					
+					width : 80
 				}, {
-					field : 'rolename',
-					title : '角色名称',
+					field : 'id',
+					title : 'ID',
 					align : 'center'
-				}, {
+				}
+				, {
+					field : 'name',
+					title : '名称',
+					align : 'center'
+				},
+				 {
 					field : 'chinesename',
 					align : 'center',
-					title : '菜单名称',
-				} ,
-				{field:'isedit', 
-				title:'是否启用', 
-				templet: '#switchTpl', 
-				unresize: true
-				}, {
+					title : '菜单中文名称',
+				},{
+					field : 'deepth',
+					align : 'center',
+					title : '层级',
+				},{
+					field : 'parentid',
+					align : 'center',
+					title : '父级id',
+				},{
+					field : 'displayorder',
+					align : 'center',
+					title : '编号顺序',
+				}
+				, {
+					field : 'navurl',
+					align : 'center',
+					title : 'url',
+				}
+				
+				 ,{field:'isdelete',
+				  title:'是否启用',
+				   width:110,
+				    templet: '#checkboxTpl',
+				     unresize: true}
+				 ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				} ] 
+				}  ] 
 			 ],
 			 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -223,37 +386,64 @@
 		/* 点击查询对网站用户进行筛选 */
 		$("#btnselfrontinfo").click(function(){
 			var useridornickname=$("#userName").val().trim();
+			
+			
 			table.render({
 				elem : '#AdminRoleSystem',
-				url : '../adiminrolesystem/adiminrolesystemlistByName?userName='+useridornickname,
+				url : '../AdminRoleMenu/adminrolelistByName?adminRoleName='+useridornickname,
 				title : '管理员角色权限数据表',
 				height: "full-160",
 				skin : 'line',
 				even : true,
 				cols : [ 
-			       [ {
+			     [ {
 					type : 'numbers',
 					title : '序号',
 					align : 'center',
-					
+					width : 80
 				}, {
-					field : 'rolename',
-					title : '角色名称',
+					field : 'id',
+					title : 'ID',
 					align : 'center'
-				}, {
+				}
+				, {
+					field : 'name',
+					title : '名称',
+					align : 'center'
+				},
+				 {
 					field : 'chinesename',
 					align : 'center',
-					title : '菜单名称',
-				} ,
-				{field:'isedit', 
-				title:'是否启用', 
-				templet: '#switchTpl', 
-				unresize: true
-				}, {
+					title : '菜单中文名称',
+				},{
+					field : 'deepth',
+					align : 'center',
+					title : '层级',
+				},{
+					field : 'parentid',
+					align : 'center',
+					title : '父级id',
+				},{
+					field : 'displayorder',
+					align : 'center',
+					title : '编号顺序',
+				}
+				, {
+					field : 'navurl',
+					align : 'center',
+					title : 'url',
+				}
+				
+				 ,{field:'isdelete',
+				  title:'是否启用',
+				   width:110,
+				    templet: '#checkboxTpl',
+				     unresize: true}
+				 ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				} ] 
+				}  ] 
 				 ],
 				 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -265,10 +455,10 @@
 			});
 		});
 		
-		//监听启用状态
-		  form.on('switch(sexDemo)', function(obj){
-		    layer.tips("启用状态修改"+'：'+ obj.elem.checked, obj.othis);
-		  });
+		 //监听锁定操作
+  form.on('checkbox(lockDemo)', function(obj){
+    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+  });
 		
 		//表格工具栏事件 
 		table.on('tool(AdminRoleSystem)', function(obj) {
@@ -304,7 +494,7 @@
 					}, function(){
 						$.ajax({
 			        		type: 'get',
-			        		url: "../adiminrolesystem/deleterolesystem?rolesystemid=" + data.id,
+			        		url: "?rolesystemid=" + data.id,
 			        		dataType: 'json',
 			        		success:function(data){
 			        			if(data.code == 0){
@@ -373,7 +563,7 @@
 									
 					$.ajax({
 						type : 'get',
-						url : '../adiminrolesystem/addrolesystem?roleid=' + Roleid + '&sysid=' + Sysid+'&isedit='+IsEdit,
+						url : '/addrolesystem?roleid=' + Roleid + '&sysid=' + Sysid+'&isedit='+IsEdit,
 						datatype : 'json',
 						success : function(data) {
 							if (data.code == "0") {

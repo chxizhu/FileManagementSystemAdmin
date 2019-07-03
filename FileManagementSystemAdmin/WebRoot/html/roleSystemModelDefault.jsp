@@ -30,14 +30,10 @@
 			</blockquote>
 			
 			<table class="layui-hide" id="backrolesystemmodel" lay-filter="backrolesystemmodel"></table>
-
-			<script type="text/html" id="selectbar">
-				<input type="checkbox" name="{{d.deepth}}" value="{{d.id}}" title="授予" lay-filter="lockDemo" {{ d.isedit == "1" ? 'checked' : '' }}>
-			</script>
-			
-			<script type="text/html" id="menuTypebar">
-				<span>{{ d.deepth <= "1" ? '展开菜单' : '子菜单' }}</span>
-			</script>			
+			<script type="text/html" id="switchTpl">
+             <!-- 这里的 checked 的状态只是演示 -->
+             <input type="checkbox" name="isedit" value="{{d.isedit}}" lay-skin="switch" lay-text="女|男" lay-filter="sexDemo" {{ d.isedit == true ? 'checked' : '' }}>
+	       </script>
 
 		</div>
 		<script src="../layui/layui.js" charset="utf-8"></script>
