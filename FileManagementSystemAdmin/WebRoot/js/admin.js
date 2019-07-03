@@ -83,8 +83,15 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 			datatype: 'json',
 			success: function(data) {
 				
-					window.location.href = "../html/login.jsp";
-					layer.msg(data.msg,{icon:2});
+					
+					layer.msg('确定要退出嘛？', {
+				        time: 20000, //20s后自动关闭
+				        btn: ['确定', '取消'],
+				       yes: function(index, layero){ // 默认的是 按钮一
+				       
+				          window.location.href = "../html/login.jsp"
+				         }
+				      });
 			},
 			error: function() {}
 		});
