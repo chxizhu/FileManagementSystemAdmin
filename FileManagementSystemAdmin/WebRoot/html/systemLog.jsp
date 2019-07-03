@@ -192,10 +192,6 @@
 									field: 'createdate',
 									align: 'center',
 									title: '创建时间'
-								}, {
-									title: '操作',
-									toolbar: '#barDemo',
-									align: 'center'
 								}]
 							],
 							page: {
@@ -252,10 +248,6 @@
 												field: 'createdate',
 												align: 'center',
 												title: '创建时间'
-											}, {
-												title: '操作',
-												toolbar: '#barDemo',
-												align: 'center'
 											}]
 										],
 										page: {

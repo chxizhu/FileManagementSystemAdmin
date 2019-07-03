@@ -330,7 +330,7 @@
 			$("#txtSex").text(data.agend);
 			$("#txtPhoneNum").text(data.phone);
 			$("#txtUserRole").text(data.rolename);
-			$("#txtadminuserusertype").text(data.departmentname);
+			$("#txtUserDepartment").text(data.departmentname);
 			
 			switch (obj.event) {
 				case 'seluser':

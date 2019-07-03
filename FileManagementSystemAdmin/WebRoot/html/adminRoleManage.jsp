@@ -160,7 +160,7 @@
 					</div>
 										
 					  <div class="layui-form-item">
-						<label class="layui-form-label">parentid:</label>
+						<label class="layui-form-label">父级ID:</label>
 						<div class="layui-input-block">
 							<input type="text" name="parentid" id="parentid" autocomplete="off" placeholder="请输入0" class="layui-input">
 						</div>

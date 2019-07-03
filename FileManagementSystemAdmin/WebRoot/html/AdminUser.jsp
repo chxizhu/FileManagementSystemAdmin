@@ -164,7 +164,7 @@
 					</div>
 					
 					<div class="layui-form-item">
-						<label class="layui-form-label">userstatus:</label>
+						<label class="layui-form-label">用户状态:</label>
 						<div class="layui-input-block">
 							<input type="text" name="userstatus" id="userstatus" autocomplete="off" placeholder="请输入1" class="layui-input">
 						</div>
