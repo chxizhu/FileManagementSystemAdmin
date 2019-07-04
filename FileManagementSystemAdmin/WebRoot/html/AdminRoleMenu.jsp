@@ -357,11 +357,11 @@
 				   width:110,
 				    templet: '#checkboxTpl',
 				     unresize: true}
-				 ,{
+				/*  ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				}  ] 
+				}  */ ] 
 			 ],
 			 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
@@ -428,11 +428,11 @@
 				   width:110,
 				    templet: '#checkboxTpl',
 				     unresize: true}
-				 ,{
+				/*  ,{
 					title : '操作',
 					toolbar : '#barDemo',
 					align : 'center'
-				}  ] 
+				}  */ ] 
 				 ],
 				 page: {
 					layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],

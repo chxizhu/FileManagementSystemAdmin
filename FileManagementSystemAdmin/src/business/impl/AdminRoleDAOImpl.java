@@ -58,4 +58,22 @@ public class AdminRoleDAOImpl implements AdminRoleDAO {
 		return bdao.delete(TAdminRole.class, adminroleid);
 	}
 
+	@Override
+	public int mAdminRoleMenu(int id, Boolean isdelete) {
+		String hql = "UPDATE T_Role_SystemModel SET isedit = ? WHERE id = ? ";
+		int is = 0;
+		if (isdelete == true) {
+			is = 1;
+		} else {
+			is = 0;
+		}
+		Object para[] = { is, id };
+		Object num = bdao.update(hql, para);
+		System.out.println();
+		if (num != null)
+			return 0;
+		else
+			return 1;
+	}
+
 }

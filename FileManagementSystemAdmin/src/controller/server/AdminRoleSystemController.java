@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import util.ResponseJSON;
 import util.ReturnData;
+import business.dao.AdminRoleDAO;
+import business.dao.AdminRoleMenuDAO;
 import business.dao.AdminRoleSystemDAO;
 import business.dao.SystemUserDAO;
+import business.impl.AdminRoleDAOImpl;
+import business.impl.AdminRoleMenuDAOimpl;
 import business.impl.AdminRoleSystemDAOImpl;
 import business.impl.SystemUserDAOImpl;
 
@@ -223,5 +227,33 @@ public class AdminRoleSystemController {
 				out.close();
 				
 			}
+			
+			// 修改启用状态
+			@RequestMapping(value = "/mrole")
+			public void mMenu(
+					int id, // 角色ID
+					Boolean isdelete, HttpServletRequest request,
+					HttpServletResponse response, Model model) throws IOException {
+
+				AdminRoleDAO mdao = new AdminRoleDAOImpl();
+				int num =mdao.mAdminRoleMenu(id, isdelete);
+				
+
+				response.setCharacterEncoding("utf-8");
+				response.setContentType("application/json");
+				PrintWriter out = response.getWriter();
+				ReturnData td = new ReturnData();
+				if (num == 0) {
+					td.code = ReturnData.SUCCESS;
+					td.msg = "修改成功";
+				} else {
+					td.code = ReturnData.ERROR;
+					td.msg = "修改失败";
+				}
+				out.write(JSON.toJSONString(td));
+				out.flush();
+				out.close();
+			}
+
 	
 }

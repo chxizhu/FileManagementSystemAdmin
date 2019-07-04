@@ -123,7 +123,7 @@
 		<table class="layui-hide" name="AdminRoleSystem" id="AdminRoleSystem" lay-filter="AdminRoleSystem"></table>
 
 		<script type="text/html" id="switchTpl">
-  			<input type="checkbox" name="isedit" value="{{d.isedit}}" lay-skin="switch" lay-text="启用|关闭" lay-filter="sexDemo" {{ d.isedit == true ? 'checked' : '' }}>
+  			<input type="checkbox" name="isedit" value="{{d.id}}" lay-skin="switch" lay-text="启用|关闭" lay-filter="sexDemo" {{ d.isedit == true ? 'checked' : '' }}>
 	</script>
 		<script type="text/html" id="barDemo">
 			<a class="layui-btn layui-btn-xs" lay-event="seluser">查看</a>
@@ -267,7 +267,38 @@
 		
 		//监听启用状态
 		  form.on('switch(sexDemo)', function(obj){
-		    layer.tips("启用状态修改"+'：'+ obj.elem.checked, obj.othis);
+		  
+		     var checked = obj.elem.checked;
+		     var id =obj.value;
+		       layer.tips("启用状态修改"+'：'+ obj.elem.checked, obj.othis);
+		    
+		   		$.ajax({
+						type : 'get',
+						url : '../adiminrolesystem/mrole?isdelete='+checked+'&id='+id,
+						datatype : 'json',
+						success : function(data) {
+							if (data.code == "0") {
+								layer.confirm(data.msg, {
+								  btn: ['确定'],
+								  icon:1
+								}, function(){
+									table.reload("AdminRoleSystemID", { //此处是上文提到的 初始化标识id
+						                where: {
+						                	keyword:data.code=='10001'
+						                }
+						            });	
+									layer.closeAll();
+								});
+							}else{
+								layer.confirm(data.msg, {
+								  btn: ['确定'],
+								  icon:2
+								});
+								layer.setTop(layero);
+							}
+						},
+						error : function() {}
+					});					
 		  });
 		
 		//表格工具栏事件 

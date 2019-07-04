@@ -54,4 +54,11 @@ public interface AdminRoleDAO {
 	 */
 	public boolean deleteAdminRole(int adminroleid);
 	
+	/**
+	 * 修改启用状态
+	 * @param TRole TRole 对象
+	 * @return  成功返回0失败返回1
+	 */
+	public int mAdminRoleMenu(int id, Boolean isdelete);
+	
 }
