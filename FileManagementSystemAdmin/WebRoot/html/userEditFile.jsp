@@ -191,7 +191,8 @@
 								, {
 									field: 'uptime',
 									align: 'center',
-									title: '创建时间'
+									title: '创建时间',
+									templet:'<div>{{ layui.util.toDateString(d.uptime, "yyyy-MM-dd") }}</div>'
 								}, {
 									title: '操作',
 									toolbar: '#barDemo',
@@ -260,7 +261,8 @@
 								, {
 									field: 'uptime',
 									align: 'center',
-									title: '创建时间'
+									title: '创建时间',
+									templet:'<div>{{ layui.util.toDateString(d.uptime, "yyyy-MM-dd") }}</div>'
 								}, {
 									title: '操作',
 									toolbar: '#barDemo',

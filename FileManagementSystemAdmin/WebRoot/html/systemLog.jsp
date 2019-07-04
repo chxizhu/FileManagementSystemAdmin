@@ -191,7 +191,8 @@
 								}, {
 									field: 'createdate',
 									align: 'center',
-									title: '创建时间'
+									title: '创建时间',
+									templet:'<div>{{ layui.util.toDateString(d.uptime, "yyyy-MM-dd") }}</div>'
 								}]
 							],
 							page: {
@@ -247,7 +248,8 @@
 											}, {
 												field: 'createdate',
 												align: 'center',
-												title: '创建时间'
+												title: '创建时间',
+												templet:'<div>{{ layui.util.toDateString(d.uptime, "yyyy-MM-dd") }}</div>'
 											}]
 										],
 										page: {
