@@ -239,7 +239,7 @@
 								table.render({
 										elem: '#adminUser',
 										id: 'adminUser',
-										url: '../systemmodel/userfile' + parm,
+										url: '../systemmodel/userfileByName' + parm,
 										title: '后台用户数据表',
 										height: "full-160",
 										skin: 'line',

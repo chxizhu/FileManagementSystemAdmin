@@ -2,6 +2,7 @@ package business.impl;
 
 import java.util.List;
 
+import model.TDepartment;
 import model.TFile;
 import model.TRole;
 import model.TsystemLog;
@@ -19,11 +20,24 @@ public class userFileDAOimpl implements userFileDAO {
 	}
 	
 	@Override
-	public List<VFile> getVFilesList(String str, int currentPage, int pageSize) {
+	public List<VFile> getVFilesList(int currentPage, int pageSize) {
+		String hql = "from VFile";
+		List<VFile> list = bado.selectByPage(hql, currentPage, pageSize);
+		return list;
+	}
+
+	@Override
+	public int getVFilesListAmount() {
+		String hql = "select count(*) from VFile ";
+		return bado.selectValue(hql);
+	}
+	
+	@Override
+	public List<VFile> getVFilesListByName(String wherecondition, int currentPage, int pageSize) {
 		// TODO Auto-generated method stub
 				String hql = "from VFile";
-				if (str != null && !str.equals("")) {
-					hql += str+")";
+				if (wherecondition != null && !wherecondition.equals("")) {
+					hql += wherecondition;
 					System.out.println(hql);
 				}
 				List<VFile> list = bado.selectByPage(hql, currentPage, pageSize);
@@ -32,10 +46,14 @@ public class userFileDAOimpl implements userFileDAO {
 	}
 
 	@Override
-	public int getVFile() {
-		String hql = "SELECT COUNT(*) FROM VFile";
-		int num = bado.selectValue(hql);
-		return num;
+	public int getVFilesListByNameAmount(String wherecondition) {		
+		String hql = "Select count(*) from VFile";
+		  if (wherecondition != null && !wherecondition.equals("")) {
+		   hql += wherecondition;
+		  
+		  }
+		  return  bado.selectValue(hql);
+		
 	}
 
 	@Override
