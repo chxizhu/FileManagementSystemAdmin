@@ -105,10 +105,10 @@
 		  
 		  <form class="layui-form" action="">		
 				
-				  <div class="layui-form-item">
+				 <div class="layui-form-item">
 				    <label class="layui-form-label">菜单名称</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title"  id="txtChineseName" autocomplete="off" placeholder="菜单名称" class="layui-input">
+				      <input type="text"  name="title" lay-verify="title" autocomplete="off" placeholder="菜单名称" class="layui-input">
 				    </div>
 				  </div>
 				  
@@ -212,93 +212,82 @@
 			
 		</script>
 		<script type="text/html" id="checkboxTpl">
-  			<input type="checkbox" name="isdelete" value="{{d.isdelete}}" title="启用" lay-filter="lockDemo" {{ d.isdelete == 0 ? 'checked' : '' }}>
+  			<input type="checkbox" name="isdelete" value="{{d.id}}" title="禁用" lay-filter="lockDemo" {{ d.isdelete == 1 ? 'checked' : '' }}>
 		</script>
 
 		<!-- 用户信息添加Start -->
 		<div id="add-blogUser">
 			<div class="artTypeLayer">
-				<form class="layui-form" action="">		
-				
-				  <div class="layui-form-item">
+				<form class="layui-form" action="">	
+				 <div class="layui-form-item">
 				    <label class="layui-form-label">菜单名称</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单名称" class="layui-input">
+				      <input type="text" id="addname" name="title" lay-verify="title"  id="txtChineseName" autocomplete="off" placeholder="菜单名称" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">中文名称</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单中文名称" class="layui-input">
+				      <input type="text" id="addchinesename" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单中文名称" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">菜单URL</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单URL" class="layui-input">
+				      <input type="text" id="addnavurl" name="title" lay-verify="title" autocomplete="off" placeholder="请输入菜单URL" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">accesslevel</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入accesslevel" class="layui-input">
+				      <input type="text" id="addaccesslevel" name="title" lay-verify="title" autocomplete="off" placeholder="请输入accesslevel" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">菜单层级</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单层级" class="layui-input">
+				      <input type="text" id="adddeepth" name="title" lay-verify="title" autocomplete="off" placeholder="菜单层级" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">菜单父级id</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单父级id" class="layui-input">
+				      <input type="text"  id="addparentid" name="title" lay-verify="title" autocomplete="off" placeholder="菜单父级id" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">菜单顺序</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单顺序" class="layui-input">
+				      <input type="text" id="adddisplayorder" name="title" lay-verify="title" autocomplete="off" placeholder="菜单顺序" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">图片URL</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="菜单图片URL" class="layui-input">
+				      <input type="text" id="addimageurl"  name="title" lay-verify="title" autocomplete="off" placeholder="菜单图片URL" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">value</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="value" class="layui-input">
+				      <input type="text" id="addvalue"  name="title" lay-verify="title" autocomplete="off" placeholder="value" class="layui-input">
 				    </div>
 				  </div>
 				  
 				  <div class="layui-form-item">
 				    <label class="layui-form-label">systemname</label>
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="systemname" class="layui-input">
+				      <input type="text" id="addsystemname" name="title" lay-verify="title" autocomplete="off" placeholder="systemname" class="layui-input">
 				    </div>
-				  </div>
-				  			
-				    		
-					 <div class="layui-form-item">
-					    <label class="layui-form-label">是否可用:</label>
-					    <div class="layui-input-block" id="addIsEdit">
-					      <input type="radio" name="IsEdit" id="IsEdit" value="True" title="True" checked>
-					      <input type="radio" name="IsEdit" id="IsEdit" value="False" title="False">
-					    </div>
-					  </div>
-					  					 								    
+				  </div>  					 								    
 				    
 				</form>
 			</div>
@@ -364,7 +353,7 @@
 				}
 				
 				 ,{field:'isdelete',
-				  title:'是否启用',
+				  title:'是否禁用',
 				   width:110,
 				    templet: '#checkboxTpl',
 				     unresize: true}
@@ -435,7 +424,7 @@
 				}
 				
 				 ,{field:'isdelete',
-				  title:'是否启用',
+				  title:'是否禁用',
 				   width:110,
 				    templet: '#checkboxTpl',
 				     unresize: true}
@@ -456,9 +445,42 @@
 		});
 		
 		 //监听锁定操作
-  form.on('checkbox(lockDemo)', function(obj){
-    layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+		 
+		  form.on('checkbox(lockDemo)', function(obj){
+		     var checked = obj.elem.checked;
+		     layer.tips(obj.value + ' ' + obj.isdelete+ '：'+ obj.elem.checked, obj.othis); 
+		    
+		     
+		   		$.ajax({
+						type : 'get',
+						url : '../AdminRoleMenu/mMenu?isdelete='+checked+'&id='+obj.value,
+						datatype : 'json',
+						success : function(data) {
+							if (data.code == "0") {
+								layer.confirm(data.msg, {
+								  btn: ['确定'],
+								  icon:1
+								}, function(){
+									table.reload("AdminRoleSystemID", { //此处是上文提到的 初始化标识id
+						                where: {
+						                	keyword:data.code=='10001'
+						                }
+						            });	
+									layer.closeAll();
+								});
+							}else{
+								layer.confirm(data.msg, {
+								  btn: ['确定'],
+								  icon:2
+								});
+								layer.setTop(layero);
+							}
+						},
+						error : function() {}
+					});						
+    
   });
+   
 		
 		//表格工具栏事件 
 		table.on('tool(AdminRoleSystem)', function(obj) {
@@ -531,9 +553,7 @@
 		
 		/* 添加一个网站用户 */
 		$("#btnAddUser").click(function(){
-			$("#addRoleid").val("");
-			$("#addSysid").val("");
-			$("#addIsEdit").val("");			
+	
 			layer.open({
 				type : 1,
 				title : '网站用户添加',
@@ -542,28 +562,23 @@
 				content : $('#add-blogUser'),
 				btn : [ '保存', '返回' ],
 				yes : function() {
-					var Roleid = $("#addRoleid").val().trim();
-					var Sysid = $("#addSysid").val().trim();
-					var IsEdit = $('#addIsEdit input[name="IsEdit"]:checked ').val();
-					
-
-					if(Roleid == "00") {
-						layer.tips('不能为空', '#addRoleid');
-						return;
-					} 
-					if(Sysid=="00"){
-						layer.tips('不能为空', '#addSysid');
-						return;
-					}
-					
-					if(IsEdit == "") {
-						layer.tips('不能为空', '#addIsEdit');
-						return;
-					} 
+					 var addname = $("#addname").val().trim();
+					 var addchinesename = $("#addchinesename").val().trim();
+					 var addnavurl = $("#addnavurl").val().trim();
+					 var addaccesslevel = $("#addaccesslevel").val(); 
+					 var adddeepth = $("#adddeepth").val();
+					 var addparentid = $("#addparentid").val(); 
+					 var adddisplayorder = $("#adddisplayorder").val();
+					 var addimageurl = $("#addimageurl").val();
+					 var addvalue = $("#addvalue").val();
+					 var addsystemname = $("#addsystemname").val();
+					 var addisdelete = 0;
+					 
+					var parm='?addname='+addname+'&addchinesename='+addchinesename+'&addnavurl='+addnavurl+'&addaccesslevel'+addaccesslevel+'&adddeepth'+adddeepth+'&addparentid'+addparentid+'&adddisplayorder'+adddisplayorder+'&addimageurl'+addimageurl+'&addvalue'+addvalue+'&addsystemname'+addsystemname+'&addisdelete'+addisdelete;
 									
 					$.ajax({
 						type : 'get',
-						url : '/addrolesystem?roleid=' + Roleid + '&sysid=' + Sysid+'&isedit='+IsEdit,
+						url : '../AdminRoleMenu/addAdminMenu'+parm,
 						datatype : 'json',
 						success : function(data) {
 							if (data.code == "0") {
