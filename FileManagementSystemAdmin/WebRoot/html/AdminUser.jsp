@@ -152,7 +152,7 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">用户密码:</label>
 						<div class="layui-input-block">
-							<input type="text" name="pwd" id="pwd" autocomplete="off" placeholder="请输入123456" class="layui-input">
+							<input type="password" name="pwd" id="pwd" autocomplete="off" placeholder="请输入密码" class="layui-input">
 						</div>
 					</div>				
 					  

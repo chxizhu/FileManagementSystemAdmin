@@ -32,7 +32,7 @@
 		<!-- 顶部开始 -->
 		<div class="container layui-bg-black">
 			<div class="logo">
-				<a href="../html/index.jsp">文件资源管理后台端</a>
+				<a href="../html/index.jsp">文件资源管理后台</a>
 			</div>
 			<div class="left_open">
 				<i title="展开左侧栏" class="iconfont">&#xe699;</i>

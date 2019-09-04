@@ -20,7 +20,7 @@
 </script>
 <body class="loginBody">
 	<form class="layui-form" id="loginForm" method="post" action="">
-		<div class="login-title">用户登录</div>
+		<div class="login-title">企业文件资源后台管理</div>
 		<div class="layui-form-item input-item layui-input-active">
 			<label for="userName">用户名</label>
 			<input type="text" placeholder="登录用户名"  name="loginId" id="user_name"  class="layui-input" lay-verify="required" >
@@ -30,7 +30,7 @@
 			<input type="password" placeholder="登录密码" autocomplete="off" id="user_password"  name="loginPwd" class="layui-input" lay-verify="required" >
 		</div>
 		<div class="layui-form-item">
-			<button type="button" lay-submit id ="login-button" class="layui-btn layui-block" lay-filter="login" >登录</button>
+			<button type="button" lay-submit id ="login-button" class="layui-btn layui-block" lay-filter="login" >登录</button>
 		</div>
 	</form>
 	<script type="text/javascript" src="../layui/layui.js"></script>
