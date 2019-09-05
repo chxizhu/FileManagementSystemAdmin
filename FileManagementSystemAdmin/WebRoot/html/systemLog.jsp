@@ -103,8 +103,7 @@
 		       				 <option value="add">add</option>
 					        <option value="modify">modify</option>
 					        <option value="delete">delete</option>
-					          <option value="query">query</option>
-							
+					          <option value="query">query</option>							
 						</select>
 					</div>
 					<div class="layui-input-inline">

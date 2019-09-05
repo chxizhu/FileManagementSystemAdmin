@@ -1,19 +1,19 @@
 package util;
 
 /**
- * Ò»¸öÓÃÓÚ´¦Àí·µ»ØĞÅÏ¢µÄjsonÀàĞÍ¶ÔÏó
+ * ä¸€ä¸ªç”¨äºå¤„ç†è¿”å›ä¿¡æ¯çš„jsonç±»å‹å¯¹è±¡
  * @author zhang jin sheng
  *
  */
 public class ResponseJSON {
 
-	public static final int FLAG_SUCC = 10001;  //´¦Àí³É¹¦
-    public static final int FLAG_FAIL = 10002;  //´¦ÀíÊ§°Ü
-    public static final int FLAG_UNKNOWN_ERORR = 10003;  //Î´ÖªµÄÒì³£»ò´íÎó
+	public static final int FLAG_SUCC = 10001;  //å¤„ç†æˆåŠŸ
+    public static final int FLAG_FAIL = 10002;  //å¤„ç†å¤±è´¥
+    public static final int FLAG_UNKNOWN_ERORR = 10003;  //æœªçŸ¥çš„å¼‚å¸¸æˆ–é”™è¯¯
     
-    public int code; //´¦Àí½á¹û×´Ì¬Âë
-    public String msg;  //´¦Àí½á¹û·µ»ØÏûÏ¢
-    public String result1; //´¦Àí·µ»Ø½á¹û£¬ÕâÀïÊÇÒ»¸öÓÃ×ª»»Îªjson¸ñÊ½µÄ×Ö·û
+    public int code; //å¤„ç†ç»“æœçŠ¶æ€ç 
+    public String msg;  //å¤„ç†ç»“æœè¿”å›æ¶ˆæ¯
+    public String result1; //å¤„ç†è¿”å›ç»“æœï¼Œè¿™é‡Œæ˜¯ä¸€ä¸ªç”¨è½¬æ¢ä¸ºjsonæ ¼å¼çš„å­—ç¬¦
     public String resultString;
     public Object resultObject;
     
